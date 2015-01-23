@@ -28,8 +28,7 @@ html {
     cursor: default; }
 
 html, body, .wrapper {
-  background-color: #fdfdfd;
-  height: 100%; }
+  background-color: #fdfdfd; }
 
 .wrapper {
   margin-top: 80px; }
