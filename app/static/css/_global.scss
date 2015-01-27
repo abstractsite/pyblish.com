@@ -1,0 +1,48 @@
+
+@font-face { font-family: "Lato"; src: url("../font/Lato-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "Lato"; src: url("../font/Lato-Bold.ttf") format("truetype"); font-weight: 700; }
+
+
+html {
+  font: 400 0.875em/1.58 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $font-color;
+  min-width: 650px;
+  letter-spacing: 0.03em;
+
+  a {
+    color: $font-color;
+
+    &:link { text-decoration: none; }
+    &:hover { color: $font-color; }
+    &:visited { color: $font-color; }
+  }
+
+  h1, h2, h3, h4, p {
+    cursor: default;
+  }
+
+  p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+html, body, .wrapper {
+  background-color: $background-color;
+}
+
+
+.wrapper {
+  margin-top: $header-height;
+}
+
+
+.logo {
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  background-image: url("../img/logo_black_512x512.png");
+  background-size: 32px 32px;
+}

@@ -1,0 +1,128 @@
+
+/*
+  
+  Kits
+   ___________________________
+  |                           |
+  |___________________________|
+   ___________________________
+  |                           |
+  |___________________________|
+   ___________________________
+  |                           |
+  |___________________________|
+
+*/
+
+
+#kits {
+
+  .legend {
+    position: relative;
+    padding-bottom: 50px;
+    width: 50px;
+    color: $font-color-light;
+    font-size: 0.8em;
+
+    table {
+      border: none;
+    }
+
+    tr {
+      border: none;
+      margin: 2px;
+      padding: 2px;
+      margin-left: 10px;
+    }
+
+    td {
+      border: none;
+    }
+
+    td:first-child {
+      width: 15px;
+      border-bottom: 7px solid white;
+      border-top: 7px solid white;
+      border-right: 7px solid white;
+    }
+  }
+
+
+  .kit {
+    padding-bottom: 20px;
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    .kit-body {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .classes {
+      display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;      /* TWEENER - IE 10 */
+      display: -webkit-flex;     /* NEW - Chrome */
+      display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+      margin: 0px;
+      padding: 0px;
+      // background-color: black;
+    }
+
+    p {
+      // display: block;
+      color: $font-color-light;
+      // vertical-align: middle;
+    }
+
+    .class {
+      height: 3px;
+      width: 25%;
+
+      &:not(.active) {
+        background-color: transparent;
+      }
+    }
+
+    .comingsoon {
+      text-transform: uppercase;
+      font-size: 0.8em;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      padding: 3px;
+      background-color: $blue;
+      border-radius: 5px;
+      
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+
+/*
+
+  Misc
+
+*/
+
+.film {
+  background-color: #FAB27F;
+}
+
+.commercial {
+  background-color: #FA7D81;
+}
+
+.games {
+  background-color: #85E8C1;
+}
+
+.visualisation {
+  background-color: #EFF372;
+}
+

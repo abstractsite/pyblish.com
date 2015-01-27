@@ -7,7 +7,7 @@
     var app = angular.module("pyblishApp", ["ngRoute",
                                             "ui.utils",
                                             "ui.bootstrap",
-                                            "duScroll"]);
+                                            "restangular"]);
 
     app.config(function ($routeProvider, $locationProvider, $anchorScrollProvider) {
         $routeProvider
@@ -21,12 +21,45 @@
                 templateUrl: "static/views/pricing.html"
             })
             .when("/guide", {
-                templateUrl: "static/views/guide.html"
+                template: "",
+                controller: function ($location) {
+                    $location.path("/guide/overview");
+                }
+            })
+            .when("/guide/:view", {
+                templateUrl: "static/views/guide.html",
+                controller: "guideController",
+                controllerAs: "ctrl"
             })
             .otherwise("/");
 
         $locationProvider.html5Mode(true);
         $anchorScrollProvider.disableAutoScrolling();
+    });
+
+
+    app.controller("guideController", function ($sce, $location, Restangular) {
+        var self,
+            guide,
+            path;
+
+        self = this;
+        path = $location.path()
+               .slice(1) // Remove prefix "/"
+               .replace("/", "-")
+               .toLowerCase();
+
+        guide = Restangular.one("view/" + path);
+
+        guide.get().then(function (data) {
+
+            /* Trust the HTML */
+            self.html = $sce.trustAsHtml(data.html);
+            self.title = data.title;
+            self.next = data.next;
+            self.previous = data.previous;
+
+        });
     });
 
 }());

@@ -1,0 +1,76 @@
+/*
+    
+  Main menu.
+   ________   ________   ________   ________ 
+  |________| |________| |________| |________|
+
+*/
+
+@import "variables";
+
+
+header {
+  position: fixed;
+  display: flex;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: $header-height;
+  padding: 20px;
+  background-color: rgba(253, 253, 253, 0.95);
+  z-index: 2;
+
+  .menu {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-start;
+
+    .filler {
+      flex-grow: 1;
+    }
+
+    .item {
+      display: block;
+      flex-grow: 0;
+      line-height: 32px;
+      margin-right: 20px;
+      transition: border-bottom-color 0.1s;
+      z-index: 10;
+      
+      &.btn {
+        padding: 5px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    
+      &.link {
+        border-bottom: 3px solid transparent;
+
+        &:hover {
+          border-bottom-color: $blue;
+        }
+      }
+    }
+  
+    /*
+      Tweaks.
+
+      The last item shouldn't have a margin.
+      We'll also slightly move the tooltip as it would otherwise
+      get obscured by the right-hand side of the window.
+
+    */
+    .download {
+      a {
+        margin-right: 0;
+      }
+      .tooltip {
+        transform: translateX(-40px);
+      }
+
+      .tooltip-arrow {
+        transform: translateX(40px);
+      }
+    }
+  }
+}
