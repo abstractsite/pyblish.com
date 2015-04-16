@@ -12,7 +12,8 @@
             templateUrl: "static/templates/pbHeadline.html",
             scope: {
                 title: "@",
-                text: "@"
+                text: "@",
+                subtitle: "@"
             },
             transclude: true
         };

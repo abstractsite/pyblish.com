@@ -4,12 +4,14 @@
 @import "global";
 @import "header";
 @import "section";
+@import "sidebar";
+@import "markdown";
+@import "syntax-highlighting";
 
 // Pages
 @import "pricing";
 @import "kits";
 @import "guide";
-@import "syntax-highlighting";
 
 
 @media (max-width: 720px) {

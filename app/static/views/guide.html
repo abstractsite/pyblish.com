@@ -1,8 +1,19 @@
-<link rel="stylesheet" href="static/css/markdown.css">
 
-<section>
-  <div ng-bind-html="ctrl.html"></div>
+<style>
+  /*
+   * Temporarily force scrollbar to always be present,
+   * until we can work around the ugly refresh of the page when
+   * switching page
+  */
 
+  body { overflow-y: scroll; }
+
+</style>
+
+<div
+  class="navigation"
+  ng-show="ctrl.showNavigation"
+  ng-class="{'sidebar-visible': ctrl.showSidebar}">
   <a
     class="next"
     href="{{ ctrl.next }}"
@@ -20,5 +31,22 @@
     tooltip-placement="right">
       <img src="static/img/previous.png" alt="">
   </a>
+</div>
 
+<div
+  class="sidebar"
+  ng-show="ctrl.showSidebar">
+  <ul>
+    <div ng-repeat="item in ctrl.toc">
+      <h3 ng-show="item.group">{{ item.group }}</h3>
+      <li ng-class="{active: item.isActive}">
+        <a href="{{ item.href }}">{{ item.text }}</a>
+      </li>
+      <p></p>
+    </div>
+  </ul>
+</div>
+
+<section id="guide" class="sidebar-visible">
+  <div ng-bind-html="ctrl.html"></div>
 </section>

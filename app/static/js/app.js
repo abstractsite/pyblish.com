@@ -14,12 +14,12 @@
             .when("/", {
                 templateUrl: "static/views/home.html"
             })
-            .when("/kits", {
-                templateUrl: "static/views/kits.html"
-            })
-            .when("/pricing", {
-                templateUrl: "static/views/pricing.html"
-            })
+            // .when("/kits", {
+            //     templateUrl: "static/views/kits.html"
+            // })
+            // .when("/pricing", {
+            //     templateUrl: "static/views/pricing.html"
+            // })
             .when("/guide", {
                 template: "",
                 controller: function ($location) {
@@ -34,7 +34,6 @@
             .otherwise("/");
 
         $locationProvider.html5Mode(true);
-        $anchorScrollProvider.disableAutoScrolling();
     });
 
 
@@ -46,7 +45,6 @@
         self = this;
         path = $location.path()
                .slice(1) // Remove prefix "/"
-               .replace("/", "-")
                .toLowerCase();
 
         guide = Restangular.one("view/" + path);
@@ -59,7 +57,11 @@
             self.next = data.next;
             self.previous = data.previous;
 
+            self.toc = data.toc;
         });
+
+        self.showNavigation = false;
+        self.showSidebar = true;
     });
 
 }());
