@@ -43,7 +43,7 @@ The next step is to expose the integration to Maya. For this, you've got two opt
      Append the following
 
      ```python
-    import pyblish_maya.lib
+    import pyblish_maya
     pyblish_maya.setup()
     ```
 
