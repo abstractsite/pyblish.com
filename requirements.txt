@@ -1,3 +1,5 @@
 Flask==0.10.1
 gunicorn==19.0.0
 Flask-RESTful==0.2.12
+misaka==1.0.2
+Pygments==2.0.2
