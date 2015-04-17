@@ -20,9 +20,9 @@ You're probably burning with the desire to re-define selection, validation, extr
 - Running your plugin
 - Registering your plugin
 - Trying that again
-- An error we've been waiting forfor)
+- An error we've been waiting for
 - Conclusion
-- Persistently registering pluginsplugin)
+- Persistently registering plugins
  - Via the environment variable
  - Via configuration
 
