@@ -15,4 +15,4 @@ By project X, you might be referring to other pipeline-related projects such as 
 [Email us][email] and we'll get back to you asap!
 
 [email]: mailto:marcus@abstractfactory.io
-[Abstract Factory]: http://abstractfactory.io
+[Abstract Factory]: http://pyblish.io

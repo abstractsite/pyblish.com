@@ -105,7 +105,8 @@ Considering this, we may retrieve `myCube_GEO` by iterating over the `instance` 
         for node in instance:
             for history in cmds.listHistory(node):
                 if cmds.nodeType(history) != "mesh":
-                    raise TypeError("%s has incoming history!" % node)
+                    raise pyblish.api.ValidationError(
+                        "%s has incoming history!" % node)
 ```
 
 At the very end, you can see that we're raising an exception. This is a validator's way of saying that an instance has not passed validation. If a validator doesn't raise an exception, all is considered well and the instance is considered valid. 
@@ -158,7 +159,8 @@ class ValidateHistory(pyblish.api.Validator):
         for node in instance:
             for history in cmds.listHistory(node):
                 if cmds.nodeType(history) != "mesh":
-                    raise TypeError("%s has incoming history!" % node)
+                    raise pyblish.api.ValidationError(
+                            "%s has incoming history!" % node)
 
 ```
 
@@ -178,20 +180,20 @@ c:\my_plugins\validate_history.py
 
 ### Saving Your Work
 
-Open up you scene from the last tutorial and run the following.
+Open up your scene from the last tutorial and run the following.
 
 ```python
 import pyblish.api
-import pyblish.main
+import pyblish.util
 
 context = pyblish.api.Context()
-pyblish.main.select(context)
+pyblish.util.select(context)
 ```
 
 At this point, `myCube_GEO` has been selected and now resides within an instance within the context. Let's run it through validation and see what happens.
 
 ```python
-pyblish.main.validate(context)
+pyblish.util.validate(context)
 ```
 
 Because `myCube_GEO` has history, the `polyCube1` generator, your plugin should have triggered an exception, but didn't. 
@@ -222,13 +224,13 @@ Our full script now looks like this.
 
 ```python
 import pyblish.api
-import pyblish.main
+import pyblish.util
 
 pyblish.api.register_plugin_path(r'c:\my_plugins')
 
 context = pyblish.api.Context()
-pyblish.main.select(context)
-pyblish.main.validate(context)
+pyblish.util.select(context)
+pyblish.util.validate(context)
 ```
 
 By registering our path, we've made Pyblish aware of our custom plugin.
@@ -250,8 +252,8 @@ You'll also see that if you try and publish, the validator will prevent you.
 Or type the following:
 
 ```python
-import pyblish.main
-pyblish.main.publish_all()
+import pyblish.util
+pyblish.util.publish()
 ```
 
 The user has now been alerted of the fact that his cube isn't living up to the requirements set forth by us. 
@@ -279,39 +281,8 @@ Now that `myCube_GEO` is up to par with our standards, we can publish it once mo
 Or type the following:
 
 ```python
-import pyblish.main
-pyblish.main.publish_all()
+import pyblish.util
+pyblish.util.publish()
 ```
 
 Thanks to your plugin, you can now rest assured that all content of this family in your library are completely free of any history. You can imagine how useful this becomes once your library starts growing. By making a few validators such as the one we just made, we can ensure that no content misbehaves and that all content remains familiar to those who use it. 
-
-This is also an important step in automation within your pipeline. We'll talk more about automation in later tutorials, but for now, let's have a final look at the registration process and what your options are here.
-
-### Persistently Registering Plugins
-
-You may have noticed that adding your custom path from Python isn't always an option. A more fool-proof method may be to store it some place where it will always get picked up. For this, you have a couple of options.
-
-#### Via the Environment Variable
-
-At run-time, Pyblish will be looking within your environment for a variable called `PYBLISHPLUGINPATH`. Instead of registering a path via Python, you can add it to this comma-separated list of paths.
-
-> WARNING: setx is modifying your environment, use with care.
-
-```bash
-# On Windows
-$ setx PYBLISHPLUGINPATH %PYBLISHPLUGINPATH%;c:\my_plugins
-```
-
-For more help with modifying your environment, see [Adding a new environment variable][var]
-
-A benefit of environment variables is that it can be added to your application-launch procedure. For example, whenever you launch Maya, your "boot-strapper" could append plugins relevant to that application (*and current project!*) prior to it being run.
-
-A disadvantage however is that environment variables are local to your machine and may not always be the most maintainable solution.
-
-[var]: https://github.com/abstractfactory/pyblish/wiki/Adding-an-environment-variable
-
-#### Via Configuration
-
-As an alternative, you can specify paths in your configuration file. We haven't yet spoken about configuration and I'll get back to you once we have, but by storing paths via a configuration file, you can make this file shared across workstations and in this way provide for a maintainable method of specifying paths for your organisation.
-
-A disadvantage however is that it is global to all of your applications and can't get distinguished in the same way as environment variables can with each running process.

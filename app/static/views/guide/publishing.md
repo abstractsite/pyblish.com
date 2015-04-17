@@ -99,8 +99,8 @@ Allright, let's try publishing.
 Or type the following:
 
 ```python
-import pyblish.main
-pyblish.main.publish()
+import pyblish.util
+pyblish.util.publish()
 ```
 
 Hmm. You're cube should have been published by now, but instead you've got a message saying:
@@ -144,8 +144,8 @@ Allright, let's try that again.
 Or type the following:
 
 ```python
-import pyblish.main
-pyblish.main.publish()
+import pyblish.util
+pyblish.util.publish()
 ```
 
 Hmm, we're still missing something.
@@ -207,8 +207,8 @@ Third time's the charm, right?
 Or type the following:
 
 ```python
-import pyblish.main
-pyblish.main.publish()
+import pyblish.util
+pyblish.util.publish()
 ```
 
 **Error!**

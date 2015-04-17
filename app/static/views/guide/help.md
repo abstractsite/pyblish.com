@@ -29,7 +29,7 @@ $ setx PYTHONPATH %PYTHONPATH%;c:\Python27\Lib\site-packages
 
 For more help with modifying your environment, see [here][var]
 
-[var]: https://github.com/abstractfactory/pyblish/wiki/Adding-an-environment-variable
+[var]: https://github.com/pyblish/pyblish/wiki/Adding-an-environment-variable
 
 
 > I'm still having trouble.

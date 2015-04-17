@@ -355,6 +355,8 @@ section {
   background: #e5e5e5;
   height: 1px;
   margin: 0 0 20px; }
+#guide em {
+  font-style: italic; }
 
 .highlight {
   background: #ffffff; }
