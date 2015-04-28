@@ -1,92 +1,41 @@
 ---
 title: Publishing
-next: /guide/plugins
+next: /guide/plug-ins
 previous: /guide/mocking
 ---
 
 # Publishing
 
-> Pyblish is designed to run on any software with support for Python. The following sections are an example of how to get up and running with Autodesk Maya.
-
-
-If you haven't already installed Pyblish, head back up to the [installation guide][Pyblish] to get started. Once ready, run this.
-
-```bash
-# Pyblish for Maya is a regular Python package on PyPI
-$ pip install pyblish-maya
-```
-
-> Pyblish is being tested using versions 2013, 2014 and 2015
-
-[Pyblish]: #installation
-
-### Installing the Integration Into Maya
-
-The next step is to expose the integration to Maya. For this, you've got two options.
-
-1. Append a `userSetup.py` to your PYTHONPATH
-
-    ```bash
-    # Typically, the integration is located here
-    c:\Python27\Lib\site-packages\pyblish_maya\pythonpath
-    ```
-
-    Append this path to your `PYTHONPATH`. See here for [help with modifying your environment][var]
-
-2. Append to your own `userSetup.py`
-
-    ```bash
-    # Typically located here:
-    C:\Users\marcus\Documents\maya\scripts\userSetup.py
-    ```
-
-     Append the following
-
-     ```python
-    import pyblish_maya
-    pyblish_maya.setup()
-    ```
-
-[var]: https://github.com/pyblish/pyblish/wiki/Adding-an-environment-variable
-
-### Testing Things Out
-
-The next time you open up Maya, look for an item in your `File` menu that reads "Publish". If you haven't got it, head over to the [Chat](https://gitter.im/pyblish/pyblish) section and we'll get you sorted out.
-
+The following sections are an example of how to get up and running with Autodesk Maya. Make sure you've already got Pyblis installed.
 
 # Making Your First Publish
 
-> This guide assumes you've got a freshly installed version of Maya and that you haven't changed it's project directory.
-
-By the end of this page, sir, *you* will have made your first publish. Just follow these steps one by one and we'll take you through how to make it happen.
+By the end of this page, sir, *you* will have made your first publish. Just follow these steps one by one and I'll take you through how to make it happen.
 
 **Table of contents**
 
-- Create something
-- Select it
-- Make it publishable
-- Dissection
+- Create Gollum
+- Select him
+- Make him publishable
+- Breakdown
  - Where did the publish go?
- - How it works
- - 5 minutes later
  - Why did it go there?
- - Where did the naming convention come from?
 - Conclusion
 
-### Create something
+### Create Gollum
 
-How about a cube.
+All great things have small beginnings. Let's start with a cube.
 
 1. In your `Create` menu
 2. Click `Polygon Primitives`
 3. Click `Cube`
-4. Rename your cube to "myCube"
+4. Rename your cube to "gollum"
 
 Or type the following in your script editor.
 
 ```python
 from maya import cmds
-cmds.polyCube(name='myCube')
+cmds.polyCube(name='gollum')
 ```
 
 ### Publish
@@ -96,42 +45,31 @@ Allright, let's try publishing.
 1. In your `File` menu
 2. Click `Publish`
 
-Or type the following:
+No instances found! What is that all about? As it turns out, there is more to be done.
 
-```python
-import pyblish.util
-pyblish.util.publish()
-```
+### Selection
 
-Hmm. You're cube should have been published by now, but instead you've got a message saying:
+`Selection` is an important keyword in Pyblish. `Selection` means to identify a particular set of data within a larger set of data. In our case, we need to separate between what is Gollum, and what is everything else.
 
-```python
-# No instances found. # 
-```
+As mentioned in the section about the [Pyblish Mechanism](guide/mechanism), `Selection` is completely arbitrary and depends entirely on your implementation. For this tutorial, we will make use of a demo Selector that ships with the Pyblish for Maya integration.
 
-What is that all about? As it turns out, there are just a few more steps we'll need to take before the button will know of exactly what and how you would like to perform your publish.
-
-### Select it
-
-*Select* is an important keyword in Pyblish. To *Select*, in Pyblish, means to specify what you would like to have published.
-
-To select your cube, add it to a selection set.
+To select Gollum, add it to a selection set.
 
 1. In your `Create` menu
 2. Click `Sets`
 3. Followed by `Set`
-4. Rename your set to "MyCube"
+4. Rename your set to "Gollum"
 
 Or, type the following:
 
 ```python
-cmds.sets(name='MyCube')
+cmds.sets(name='Gollum')
 ```
 
-If you didn't have `myCube` selected when you created the set, make sure to add it to the set, either by dragging-and-dropping or by typing:
+If you didn't have `gollum` selected when you created the set, make sure to add it to the set, either by dragging-and-dropping or by typing:
 
 ```python
-cmds.sets('myCube', addElement='MyCube')
+cmds.sets('gollum', addElement='Gollum')
 ```
 
 ### Publish
@@ -141,18 +79,7 @@ Allright, let's try that again.
 1. In your `File` menu
 2. Click `Publish`
 
-Or type the following:
-
-```python
-import pyblish.util
-pyblish.util.publish()
-```
-
 Hmm, we're still missing something.
-
-```python
-# No instances found. # 
-```
 
 ### Make it publishable
 
@@ -174,11 +101,14 @@ You can add it by going to your [Channel Box][chan].
 7. Click `String` as `Data Type`
 8. Hit `OK`
 
+[chan]: http://download.autodesk.com/global/docs/maya2014/en_us/files/GUID-424694BA-019A-4D05-86EF-F9CD0A69D92C.htm
+[attributeeditor]: http://download.autodesk.com/global/docs/maya2014/en_us/files/GUID-67A58D31-4722-4769-B3E6-1A35B5B53BED.htm
+
 Or type the following:
 
 ```python
-cmds.addAttr('MyCube', at='bool', longName='publishable')
-cmds.addAttr('MyCube', dt='string', longName='family')
+cmds.addAttr('Gollum', at='bool', longName='publishable')
+cmds.addAttr('Gollum', dt='string', longName='family')
 ```
 
 Next, fill in the values.
@@ -191,8 +121,8 @@ Next, fill in the values.
 Or type the following:
 
 ```python
-cmds.setAttr('MyCube.publishable', True)
-cmds.setAttr('MyCube.family', 'demo.model', type='string')
+cmds.setAttr('Gollum.publishable', True)
+cmds.setAttr('Gollum.family', 'demo.model', type='string')
 ```
 
 Now Pyblish will be able to distinguish between this set and any other set you might have.
@@ -204,34 +134,19 @@ Third time's the charm, right?
 1. In your `File` menu
 2. Click `Publish`
 
-Or type the following:
+In the Pyblish GUI, you should now be seeing your Gollum instance, along with a few plug-ins. Once you publish, one of the validators indicates that there is something invalid about Gollum.
 
 ```python
-import pyblish.util
-pyblish.util.publish()
-```
-
-**Error!**
-
-```python
-# Error:
 # ValueError: The following nodes were misnamed
-#   myCube
+#   gollum
 ```
 
-Uh-oh. Looks like we've got a new error this time. By the looks of it, our Cube wasn't named according to the naming conventions. Let's try and remedy this. Currently, the naming convention is for everything you publish to always have a three-letter extension.
+By the looks of it, Gollum wasn't named according to the demo naming conventions bundled with the Pyblish for Maya integration. Let's try and remedy this. The naming convention in this case is for everything you publish to always have a three-letter extension.
 
-1. Rename `myCube` to `myCube_GEO`
-2. Re-run the publish
+1. Rename `gollum` to `gollum_GEO`
+2. Re-publish
 
-You should now see this message in your script editor.
-
-```bash
-# Finished successfully #
-```
-
-[chan]: http://download.autodesk.com/global/docs/maya2014/en_us/files/GUID-424694BA-019A-4D05-86EF-F9CD0A69D92C.htm
-[attributeeditor]: http://download.autodesk.com/global/docs/maya2014/en_us/files/GUID-67A58D31-4722-4769-B3E6-1A35B5B53BED.htm
+Publishing should now proceed successfully, if it didn't, head on to the [Toubleshooting](guide/help).
 
 ## Dissection
 
@@ -241,15 +156,15 @@ Ok, let's back up a second and reflect on what happened. There are a couple of q
 1. Why did it go there?
 1. Where did the naming convention come from?
 1. Why did we have to add the two attributes, `publishable` and `family`?
-1. Why did we have to put `myCube` into a selection set?
+1. Why did we have to put `gollum` into a selection set?
 
 From the top:
 
 1. To your workspace.
-1. Because the plugin `extract_as_ma` put it there.
-1. From the plugin `validate_naming_convention`.
-1. Because the plugin `select_object_set` was looking for it.
-1. Because the plugin `select_object_set` was looking for this too.
+1. Because the plug-in `extract_as_ma` put it there.
+1. From the plug-in `validate_naming_convention`.
+1. Because the plug-in `select_object_set` was looking for it.
+1. Because the plug-in `select_object_set` was looking for this too.
 
 Too direct? Yes, let's have a closer look at how all of this fits together.
 
@@ -263,32 +178,26 @@ If you look within your project directory, you'll notice that you've now got a n
 C:\Users\marcus\Documents\maya\projects\default\published
 ```
 
-This is where Pyblish chose to store `MyCube` when you hit the Publish button. But how did it know to do that? And why did it put it in a subdirectory that looks like the current date and time, followed by a few other directories?
+This is where Pyblish chose to store `Gollum` when you hit the Publish button. But how did it know to do that? And why did it put it in a subdirectory that looks like the current date and time, followed by a few other directories?
 
 - published
  - 20140907-174550
   - demo.model
-   - MyCub
+   - Gollum
 
 And how did it know to produce 4 files? Why not 5, or 3? 
 
-- MyCube
- - MyCube.ma
- - MyCube.mb
- - MyCube.obj
- - MyCube.mtl
+- Gollum
+ - Gollum.ma
+ - Gollum.mb
+ - Gollum.obj
+ - Gollum.mtl
 
-Well, the answer lies in the plugins.
-
-#### How It Works
-
-If you haven't already done so, now would be an excellent time to read How It Works. It'll provide you with an overview of how Pyblish processes your publishes. Once you're ready, come back here and we'll continue.
-
-- How It Works
+Well, the answer lies in the plug-ins.
 
 ### 5 Minutes Later
 
-> Ok, so a selection plugin *selects* the cube?
+> Ok, so a selection plug-in *selects* the cube?
 
 Yes. It knows to do this because of how it is implemented.
 
@@ -306,18 +215,18 @@ That's a good question. The `publishable` is merely an attribute to help the sel
 
 Remember when Neo took the red pill and they were able to locate him amongst a field of pods identical to his own?
 
-`family` is where things start getting interesting. The family is a critical element of Pyblish. It's a way of saying "*this* instance belongs to *this* group of plugins". If you look at the selection set in your scene from your Attribute Editor, under "Extra Attributes", you'll see that the family attribute has the value "demo.model".
+`family` is where things start getting interesting. The family is a critical element of Pyblish. It's a way of saying "*this* instance belongs to *this* group of plug-ins". If you look at the selection set in your scene from your Attribute Editor, under "Extra Attributes", you'll see that the family attribute has the value "demo.model".
 
 ```python
-print cmds.getAttr('MyCube.family')
+print cmds.getAttr('Gollum.family')
 ```
 
 > "demo.model"?
 
-Yes, this is a way for the instance to say "I'd like all plugins compatible with `demo.model` to process me". Each plugin is associated with at least one (1) family. In effect, the instance is processed by a number of plugins compatible with this family.
+Yes, this is a way for the instance to say "I'd like all plug-ins compatible with `demo.model` to process me". Each plug-in is associated with at least one (1) family. In effect, the instance is processed by a number of plug-ins compatible with this family.
 
 ```python
-# A plugin may support multiple families, but
+# A plug-in may support multiple families, but
 # an instance may only support one.
  _______________        _______________
 |               |      |               |
@@ -331,11 +240,11 @@ Yes, this is a way for the instance to say "I'd like all plugins compatible with
 
 > I'm confused..
 
-Don't worry, this will make more sense once we get a little bit further in learning about Pyblish. All you need to remember from this is that each plugin carries a list of supported families and that all instances carries exactly one (1) family that may or may not match any of the available plugins.
+Don't worry, this will make more sense once we get a little bit further in learning about Pyblish. All you need to remember from this is that each plug-in carries a list of supported families and that all instances carries exactly one (1) family that may or may not match any of the available plug-ins.
 
 ### Why Did the Publish Go There?
 
-> Because the plugin `extract_as_ma` put it there.
+> Because the plug-in `extract_as_ma` put it there.
 
 Well, if you remember from the **How It Works**, once selection and validation was complete, extraction took over. One of the extractors - specifically, one called `extract_as_ma` - is responsible for putting the files where they ended up.
 
@@ -359,11 +268,11 @@ These are concerns well suited for conformers.
 
 ### Where Did the Naming Convention Come From?
 -
-> From the plugin `validate_naming_convention`.
+> From the plug-in `validate_naming_convention`.
 
-By now, you can probably answer the remaining questions yourself. But there is one important aspect I'd like to point out regarding the naming convention plugin.
+By now, you can probably answer the remaining questions yourself. But there is one important aspect I'd like to point out regarding the naming convention plug-in.
 
-The reason this naming convention was applied to "myCube_GEO" was because we specified that this cube was of family "demo.model".
+The reason this naming convention was applied to "gollum_GEO" was because we specified that this cube was of family "demo.model".
 
 We associated this family with our cube and in effect said "associate this particular naming convention to this cube".
 
@@ -371,9 +280,8 @@ We associated this family with our cube and in effect said "associate this parti
 
 Ok, time for a breather. 
 
-We've covered a lot of ground here but if there is one thing I'd like you to take with you it is that the manner in which we just published your first instance is fully dictated by the plugins currently exposed to Pyblish by the time you initiate your publish and that these plugins are just demos.
+We've covered a lot of ground here but if there is one thing I'd like you to take with you it is that the manner in which we just published your first instance is fully dictated by the plug-ins currently exposed to Pyblish by the time you initiate your publish and that the plug-ins we've used today are just demos.
 
-Pyblish is a "eat your own dog-food" library in that anything it does it does in the same manner you would do it if you were the one implementing the behaviour. We think this is important and it keeps us honest and our implementations open for learning and modification.
+Pyblish is a "eat your own dog-food" library in that anything it does it does in the same manner you would do it if you were the one implementing the behaviour. We think this is important and it keeps us honest and our implementations open to learning and modification.
 
-You're probably very excited about writing your own plugins by now, so let's do that! If you've saved your work (you'll need it next), read on.
-
+You're probably very excited about writing your own plug-ins by now, so let's do that! If you've saved your work (you'll need it next), read on.

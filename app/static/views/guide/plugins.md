@@ -39,9 +39,9 @@ In a nutshell, we want a plugin to look at our cube and determine whether or not
 [`maya.cmds.listHistory()`][listhistory] looks good, let's try that.
 
 ```python
->>> history = cmds.listHistory('myCube_GEO')
+>>> history = cmds.listHistory('gollum_GEO')
 >>> print history
-[u'myCube_GEOShape', u'polyCube1']
+[u'gollum_GEOShape', u'polyCube1']
 ```
 
 Hmm, the command does indeed give us the history of our node, but it also returns a shape node. Looks like we'll also need to check for those before making our evaluation.
@@ -53,7 +53,7 @@ Hmm, the command does indeed give us the history of our node, but it also return
 ...        break
 ```
 
-That should do it. Now we have a way of looking at `myCube_GEO` and determine whether or not it has any history attached. We would like our validator to do the same and prevent users from publishing until the problem has been fixed.
+That should do it. Now we have a way of looking at `gollum_GEO` and determine whether or not it has any history attached. We would like our validator to do the same and prevent users from publishing until the problem has been fixed.
 
 [listhistory]: http://help.autodesk.com/cloudhelp/2015/ENU/Maya-Tech-Docs/CommandsPython/listHistory.html
 
@@ -73,7 +73,7 @@ class ValidateHistory(pyblish.api.Validator):
 
 Each plugin carries two methods of interest to us - `process_context` and `process_instance` - processing the context and instance respectively.
 
-As we are interested in processing our instance, which contains `myCube_GEO`, we'll choose an appropriate method to override.
+As we are interested in processing our instance, which contains `gollum_GEO`, we'll choose an appropriate method to override.
 
 ```python
 # validate_history.py
@@ -96,7 +96,7 @@ for instance in context:
 
 ### Implementation
 
-Considering this, we may retrieve `myCube_GEO` by iterating over the `instance` argument of `process_instance()`, and this is where we'll finally apply our validation. Don't forget to import `maya.cmds`.
+Considering this, we may retrieve `gollum_GEO` by iterating over the `instance` argument of `process_instance()`, and this is where we'll finally apply our validation. Don't forget to import `maya.cmds`.
 
 ```python
 # Content discarded for brevity
@@ -126,9 +126,7 @@ class ValidateHistory(pyblish.api.Validator):
 ...
 ```
 
-> A plugin can support multiple families. 
-
-> This is useful in situations where you may have a more general plugin apply to many types of families. For example, you may want naming convention to apply to both models and rigs.
+> A plugin can support multiple families. This is useful in situations where you may have a more general plugin apply to many types of families. For example, you may want naming convention to apply to both models and rigs.
 
 ### Adding Host Support
 
@@ -170,8 +168,6 @@ Choose a directory to your liking and save your plugin as `validate_history.py`.
 
 The name is important. Any module starting with `validate_` is considered a validator-plugin. Just as those starting with `select_`, `extract_` and `conform_` are considered a selector-, extractor- and conform-plugin respectively.
 
-> You can change the manner in which plugins are discovered via your user-configuration file. For more information, head on back up to Configuring Pyblish.
-
 For the sake of this tutorial, I'll assume you've saved your plugin here.
 
 ```
@@ -183,28 +179,27 @@ c:\my_plugins\validate_history.py
 Open up your scene from the last tutorial and run the following.
 
 ```python
-import pyblish.api
 import pyblish.util
-
-context = pyblish.api.Context()
-pyblish.util.select(context)
+context = pyblish.util.select(context)
 ```
 
-At this point, `myCube_GEO` has been selected and now resides within an instance within the context. Let's run it through validation and see what happens.
+> In this case, we've chosen to publish via Python commands, as opposed to a graphical user interface. This can be useful during debugging as it gives to access to the `Context` and each `Instance` along with all of their data.
+
+At this point, `gollum_GEO` has been selected and now resides within an instance within the context. Let's run it through validation and see what happens.
 
 ```python
 pyblish.util.validate(context)
 ```
 
-Because `myCube_GEO` has history, the `polyCube1` generator, your plugin should have triggered an exception, but didn't. 
+Because `gollum_GEO` has history, the `polyCube1` generator, your plugin should have triggered an exception, but didn't. 
 
 Why is that?
 
 ### Registering Your Plugin
 
-For Pyblish to pick up your brilliant plugin, we'll first need to tell it about where you put it. You can register a directory in which you keep custom plugins. 
+For Pyblish to pick up your plugin, we'll first need to tell it about where you put it. You can register a directory in which you keep custom plugins. 
 
-> You could store it along with where the other plugins are at, in the Pyblish Python package. But by doing this you risk loosing your plugins when updating or un-installing Pyblish.
+> You could store it along with where the other plugins are at, for example in the Pyblish for Maya integration package. But by doing this you risk loosing your plugins when updating or un-installing Pyblish.
 
 In our case, we wish to register:
 
@@ -240,8 +235,8 @@ By registering our path, we've made Pyblish aware of our custom plugin.
 If everything went right, we've got our error.
 
 ```python
-# Error: pyblish.api.Plugin : An exception occured during processing of instance [u'MyCube'] # 
-# Error: TypeError: file C:\Python27\Lib\site-packages\pyblish\main.py line 71: |myCube_GEO|myCube_GEOShape has incoming history! # 
+# Error: pyblish.api.Plugin : An exception occured during processing of instance [u'Gollum'] # 
+# Error: TypeError: file C:\Python27\Lib\site-packages\pyblish\main.py line 71: |gollum_GEO|gollum_GEOShape has incoming history! # 
 ```
 
 You'll also see that if you try and publish, the validator will prevent you.
@@ -260,7 +255,7 @@ The user has now been alerted of the fact that his cube isn't living up to the r
 
 We can remedy this by deleting all history.
 
-1. With `myCube_GEO` selected
+1. With `gollum_GEO` selected
 1. In your `Edit` menu
 1. Click `Delete by Type`
 1. Click `History`
@@ -268,12 +263,12 @@ We can remedy this by deleting all history.
 Or type the following:
 
 ```python
-cmds.delete('myCube_GEO', constructionHistory=True)
+cmds.delete('gollum_GEO', constructionHistory=True)
 ```
 
 ### Conclusion
 
-Now that `myCube_GEO` is up to par with our standards, we can publish it once more!
+Now that `gollum_GEO` is up to par with our standards, we can publish it once more!
 
 1. In your `File` menu
 2. Click `Publish`

@@ -9,10 +9,13 @@ previous: /guide/mechanism
 
 The best way to learn anything is to try things out.
 
-```bash
-# Pyblish is available via pip
-$ pip install pyblish
-```
+- [Pyblish for Windows][win]
+- [Pyblish for OSX][osx]
+- [Pyblish for Linux][linux]
+
+[win]: https://github.com/pyblish/pyblish-win/releases/latest
+[osx]: https://github.com/pyblish/pyblish-osx/wiki
+[linux]: https://github.com/pyblish/pyblish-linux/wiki
 
 To test things out, let's try and import our newly installed package.
 
@@ -22,12 +25,4 @@ To test things out, let's try and import our newly installed package.
 '1.0.15'
 ```
 
-The next few sections cover some in-depth details about Pyblish, but if you'd rather get your feet wet with publishing within Autodesk Maya, head on down to [Publishing](/guide/publishing) to get started!
-
-### Having trouble?
-
-If you need help with anything, feel free to ask in Gitter - our public chat room, or contact us directly. There is also a [help section](/guide/help)
-
-- [Gitter](https://gitter.im/pyblish/pyblish)
-- [Contact](mailto:contact@abstractfactory.io)
-- [Help](/guide/help)
+If this isn't the results you've got, head on over to [Troubleshooting](guide/help) and we'll try and get things sorted.
