@@ -6,7 +6,7 @@ previous: /guide/mocking
 
 # Publishing
 
-The following sections are an example of how to get up and running with Autodesk Maya. Make sure you've already got Pyblis installed.
+The following sections are an example of how to get up and running with Autodesk Maya.
 
 # Making Your First Publish
 
