@@ -14,24 +14,26 @@
             .when("/", {
                 templateUrl: "static/views/home.html"
             })
-            // .when("/kits", {
-            //     templateUrl: "static/views/kits.html"
-            // })
-            // .when("/pricing", {
-            //     templateUrl: "static/views/pricing.html"
-            // })
+            .when("/kits", {
+                templateUrl: "static/views/kits.html"
+            })
+            .when("/pricing", {
+                templateUrl: "static/views/pricing.html"
+            })
             .when("/guide", {
-                template: "",
-                controller: function ($location) {
-                    $location.path("/guide/overview");
-                }
+                redirectTo: "/guide/overview"
             })
             .when("/guide/:view", {
                 templateUrl: "static/views/guide.html",
                 controller: "guideController",
                 controllerAs: "ctrl"
             })
-            .otherwise("/");
+            .when("/404", {
+                templateUrl: "static/views/404.html"
+            })
+            .otherwise({
+                redirectTo: "/404"
+            });
 
         $locationProvider.html5Mode(true);
     });

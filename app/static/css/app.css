@@ -54,7 +54,7 @@ table {
   src: url("../font/Lato-Bold.ttf") format("truetype");
   font-weight: 700; }
 html {
-  font: 400 0.875em/1.58 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 400 0.875em/1.58 "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   color: #787878;
   min-width: 650px;
   letter-spacing: 0.03em; }
@@ -85,6 +85,17 @@ html, body, .wrapper {
   height: 32px;
   background-image: url("../img/logo_black_512x512.png");
   background-size: 32px 32px; }
+
+#fourofour {
+  position: relative;
+  top: 100px;
+  width: 100%; }
+  #fourofour h1 {
+    text-align: center;
+    font-size: 3em; }
+  #fourofour p {
+    text-align: center;
+    opacity: 0.5; }
 
 /*
     
