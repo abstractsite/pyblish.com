@@ -9,7 +9,31 @@
     app.directive("pbHeader", function () {
         return {
             restrict: "E",
-            templateUrl: "static/templates/pbHeader.html"
+            templateUrl: "static/templates/pbHeader.html",
+            controller: "headerController",
+            controllerAs: "ctr"
         };
     });
+
+    app.controller('headerController', function ($scope, $window) {
+        var version = $window.navigator.appVersion,
+            os = version.indexOf("Win") !== -1 ? {name: "Windows", link: "win"} :
+                 version.indexOf("Mac") !== -1 ? {name: "OSX", link: "osx"} :
+                 version.indexOf("X11") !== -1 ? {name: "Linux", link: "linux"} :
+                 version.indexOf("Linux") !== -1 ? {name: "Linux", link: "linux"} :
+                 "unknown";
+
+        console.log("OS is", os.name);
+
+        $scope.os = os;
+        $scope.headerTranslucent = $window.pageYOffset < 20 ? true : false;
+
+        $window.addEventListener("scroll", function () {
+            $scope.$apply(function () {
+                $scope.headerTranslucent = $window.pageYOffset < 20 ? true : false;
+            });
+        });
+
+    });
+
 }());

@@ -1,10 +1,12 @@
-
 @font-face { font-family: "Lato"; src: url("../font/Lato-Regular.ttf") format("truetype"); font-weight: 400; }
 @font-face { font-family: "Lato"; src: url("../font/Lato-Bold.ttf") format("truetype"); font-weight: 700; }
+@font-face { font-family: "Lato"; src: url("../font/Lato-Light.ttf") format("truetype"); font-weight: 200; }
 
 
 html {
-  font: 400 0.875em/1.58 "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  // font: 400 1em/1.58 "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  // font: 400 0.9em/1.58 "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font: 300 0.9em/1.28 "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   color: $font-color;
   min-width: 650px;
   letter-spacing: 0.03em;
@@ -21,8 +23,25 @@ html {
     cursor: default;
   }
 
+  strong {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-weight: 200;
+    font-size: 2.6em;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.8em;
+  }
+
   p {
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 20px;
   }
 }
@@ -32,17 +51,17 @@ html, body, .wrapper {
   background-color: $background-color;
 }
 
-
 .wrapper {
-  margin-top: $header-height;
+  display: flex;
+  justify-content: center;
+
+  // height: 100vh;
+  // min-height: 400px;
 }
 
-
-.logo {
-  padding: 0;
-  margin: 0;
-  width: 32px;
-  height: 32px;
-  background-image: url("../img/logo_black_512x512.png");
-  background-size: 32px 32px;
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

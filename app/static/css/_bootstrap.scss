@@ -1,0 +1,18 @@
+
+.btn-square {
+  background: transparent;
+  border-radius: 0;
+  border-width: 3px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover {
+    border-color: #fff;
+    background: transparent;
+  }
+}

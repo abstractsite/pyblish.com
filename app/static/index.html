@@ -2,8 +2,11 @@
 <html ng-app="pyblishApp">
   <head>
     <base href="/">
-    <!-- <link href="static/favicon.ico" rel="icon" type="image/x-icon" /> -->
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400' type='text/css'>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- Local stylesheets -->
@@ -13,10 +16,9 @@
   </head>
   <body>
 
-    <pb-header></pb-header>
-
     <div class="wrapper">
-      <div ng-view style="height: 100%"></div>
+      <pb-header></pb-header>
+      <div ng-view autoscroll="true"></div>
     </div>
 
     <!-- Dependencies -->

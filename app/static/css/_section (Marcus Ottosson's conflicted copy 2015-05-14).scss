@@ -1,0 +1,151 @@
+/*
+
+  A section represents a single row of information on the site
+  and includes e.g. landing page, pricing and kit information.
+
+*/
+
+@import "variables";
+@import "animation";
+
+
+section {
+  position: relative;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 130px;
+  animation: fade 1s;
+  width: 750px;
+
+  p {
+    transition: opacity 0.1s;
+    line-height: 1.5em;
+  }
+
+  /*
+  
+    Headlines mostly fills the viewport with its header text.
+
+     ____________________________________________
+    |                                            |
+    |                                            |
+    |____________________________________________|
+            ______________________________
+           |______________________________|
+
+
+  */
+  pb-headline div {
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    h1 {
+      /* Main title */
+      font-size: 6em;
+      font-weight: 300;
+      letter-spacing: 15px;
+    }
+
+    h2 { 
+      /* Subtitle */
+      font-size: 1.2em;
+      margin-top: 20px;
+      letter-spacing: 2px;
+    }
+      
+    h1, h2, h3 {
+      text-align: center;
+    }
+
+    p {
+      display: block;
+      color: white;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      max-width: 500px;
+      text-align: center;
+      color: lighten($font-color, 30);
+    }
+  }
+  
+  #play {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+    height: 80px;
+  }
+
+  a {
+    font-size: 20px;
+
+    i {
+      position: absolute;
+      height: 80px;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+
+      text-align: center;
+
+      color: white;
+
+      animation-duration: 4s;
+      animation-name: pulse;
+      animation-iteration-count: infinite;
+      animation-delay: 2s;
+    }
+  }
+}
+
+
+.navigation {
+  $button-width: 100px;
+
+  .next, .previous {
+
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    display: table-cell;
+    vertical-align: middle;
+    
+    img {
+      position: absolute;
+      width: $button-width;
+      
+      // Image ends up with it's top-anchor at the center
+      // So we'll need to offset it via a negative top-margin
+      top: 50%;
+      margin-top: - $button-width / 2;
+      text-align: center;
+      transition: margin-left ease-out 0.1s;
+    }
+  }
+
+  .next {
+    width: $button-width;
+    right: 0px;
+
+    &:hover {
+      img {
+        margin-left: 10px;
+      }
+    }
+
+  }
+
+  .previous {
+    width: $button-width;
+    left: 0px;
+    transition: margin-right ease-out 0.1s;
+    
+    &:hover {
+      img {
+        margin-left: -10px;
+      }
+    }
+  }
+}

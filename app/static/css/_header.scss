@@ -9,67 +9,117 @@
 @import "variables";
 
 
-header {
-  position: fixed;
-  display: flex;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  height: $header-height;
-  padding: 20px;
-  background-color: rgba(253, 253, 253, 0.95);
-  z-index: 2;
+#header {
 
-  .menu {
-    display: flex;
-    flex-grow: 1;
-    align-items: flex-start;
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
 
-    .filler {
-      flex-grow: 1;
+    height: $header-height;
+    background-color: white;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1);
+
+    transition: height 0.5s;
+
+    &.translucent {
+      height: 0px;
     }
+  }
 
-    .item {
-      display: block;
-      flex-grow: 0;
-      line-height: 32px;
-      margin-right: 20px;
-      transition: border-bottom-color 0.1s;
-      z-index: 10;
-      
-      &.btn {
-        padding: 5px;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-    
-      &.link {
-        border-bottom: 3px solid transparent;
+  header {
+    position: fixed;
+    display: flex;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: $header-height;
 
-        &:hover {
-          border-bottom-color: $blue;
+    padding: 20px;
+    z-index: 4;
+
+    background-color: transparent;
+
+    &.translucent {
+      a {
+        color: white;
+
+        &.btn {
+          background-color: transparent;
         }
       }
     }
-  
-    /*
-      Tweaks.
 
-      The last item shouldn't have a margin.
-      We'll also slightly move the tooltip as it would otherwise
-      get obscured by the right-hand side of the window.
+    .logo {
+      padding: 0;
+      margin: 0;
+      width: 128px;
+      height: 32px;
+      background-image: url("../img/pyblish-black.png");
+      background-size: auto 32px;
+      background-repeat: no-repeat;
 
-    */
-    .download {
-      a {
-        margin-right: 0;
+      &.translucent {
+        width: 32px;
+        background-image: url("../img/pyblish-white.png")
       }
-      .tooltip {
-        transform: translateX(-20px);
+    }
+
+    .menu {
+      display: flex;
+      flex-grow: 1;
+      align-items: flex-start;
+
+      .filler {
+        flex-grow: 1;
       }
 
-      .tooltip-arrow {
-        transform: translateX(20px);
+      .item {
+        display: block;
+        flex-grow: 0;
+        line-height: 32px;
+        margin-right: 20px;
+        transition: transform 0.2s, border 0.1s;
+        z-index: 10;
+        
+        &.btn {
+          padding: 5px;
+          padding-top: 0;
+          padding-bottom: 0;
+          background-color: white;
+          transition: background-color 0.5s;
+        }
+      
+        border-bottom: 0px solid transparent;
+
+        &:hover {
+          border-bottom-color: white;
+          border-bottom-width: 3px;
+          transform: translateY(-2px);
+        }
+      }
+
+      /*
+        Tweaks.
+
+        The last item shouldn't have a margin.
+        We'll also slightly move the tooltip as it would otherwise
+        get obscured by the right-hand side of the window.
+
+      */
+      .download {
+        a {
+          margin-right: 0;
+        }
+        .tooltip {
+          transform: translateX(-20px);
+        }
+
+        .tooltip-arrow {
+          transform: translateX(20px);
+        }
       }
     }
   }

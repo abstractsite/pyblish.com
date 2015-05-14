@@ -1,35 +1,61 @@
+<div id="header">
+  <div id="background" ng-class="{translucent: headerTranslucent}"></div>
 
-
-<header>
-  <a href="/">
-    <div
-      class="logo"
-      tooltip="Home"
-      tooltip-placement="bottom">
-    </div>
-  </a>
-  <div class="menu">
-    <div class="filler"></div>
-    <a class="item" href="/">Home</a>
-    <a class="item" href="https://gitter.im/pyblish/pyblish"
-      tooltip="Go to chat"
-      tooltip-placement="bottom">Chat</a>
-    <a class="item" href="http://forums.pyblish.com"
-      tooltip="Go to forums"
-      tooltip-placement="bottom">Forums</a>
-    <a class="item" href="/guide">Guide</a>
-    <a class="item" href="http://api.pyblish.com"
-      tooltip="Offsite"
-      tooltip-placement="bottom">API</a>
-
-    <div class="download">
-      <a
-        href="https://github.com/pyblish/pyblish"
-        role="button"
-        target="_blank"
-        tooltip="Go to GitHub"
+  <header ng-class="{translucent: headerTranslucent}">
+    <a href="/">
+      <div
+        class="logo"
+        tooltip="Home"
         tooltip-placement="bottom"
-        class="btn btn-default">Download</a>
+        ng-class="{translucent: headerTranslucent}">
+      </div>
+    </a>
+    <div class="menu">
+      <div class="filler"></div>
+      <a class="item"
+        href="/">
+          Home
+        </a>
+      
+      <a class="item"
+        href="/guide">
+          Guide
+      </a>
+
+      <a class="item"
+        target="_blank"
+        href="https://gitter.im/pyblish/pyblish"
+        tooltip="Go to chat"
+        tooltip-placement="bottom">
+          Chat
+      </a>
+      
+      <a class="item"
+        target="_blank"
+        href="http://forums.pyblish.com"
+        tooltip="Go to forums"
+        tooltip-placement="bottom">
+          Forums
+      </a>
+      <a class="item"
+        target="_blank"
+        href="https://github.com/pyblish/pyblish.api/wiki"
+        tooltip="Go to API documentation"
+        tooltip-placement="bottom">
+          API
+      </a>
+
+      <div class="download">
+        <a
+          ng-href="https://github.com/pyblish/pyblish-{{ os.link }}/releases/latest"
+          role="button"
+          target="_blank"
+          tooltip="Download for {{ os.name }}"
+          tooltip-placement="bottom"
+          class="btn btn-default">
+            Download
+        </a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</div>

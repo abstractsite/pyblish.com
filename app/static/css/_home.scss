@@ -1,0 +1,159 @@
+
+#home {
+
+  #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #find-out-more {
+    height: 200px;
+    margin-bottom: 50px;
+
+    #cover {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background-color: #222;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  #landingpage {
+    position: relative;
+    padding-top: $header-height;
+    height: 100vh;
+    margin-bottom: 0;
+  }
+
+  #player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 3;
+    visibility: hidden;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    transition: background-color 0.3s;
+
+    &.active {
+      visibility: visible;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    text-align: center;
+
+    iframe {
+      display: block;
+      width: 670px;
+      height: 350px;
+    }
+  }
+
+  #what-is-it {
+    .grid {
+      flex-wrap: nowrap;
+
+      img {
+        background-image: url("../img/sunset_bridge-wallpaper-2560x1920.jpg");
+        background-position: -475px -58px;
+        background-repeat: no-repeat;
+        background-size: 1200px;
+        min-width: 200px;
+        max-width: 200px;
+        min-height: 500px;
+        max-height: 500px;
+        margin-right: 50px;
+      }
+    }
+  }
+
+
+  #companies, #software {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    h1 {
+      padding-bottom: 30px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      cursor: default;
+
+      img {
+        margin: 20px;
+        width: auto;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  #companies {
+    padding-top: 100px;
+  }
+
+  #stories {
+    h1 {
+      text-align: center;
+    }
+
+    .grid {
+      .box {
+        color: white;
+        background-color: #222;
+        margin: 15px;
+        overflow: hidden;
+
+        max-width: 250px;
+
+        position: relative;
+        padding: 10px;
+
+        box-shadow: 1px 1px 2px 0px #AAA;
+        transition: box-shadow 0.1s;
+
+        i {
+          font-style: normal;
+          color: #777;
+        }
+
+        p, a, div {
+          position: relative;
+          z-index: 2;
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

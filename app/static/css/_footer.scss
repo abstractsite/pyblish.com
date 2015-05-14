@@ -1,0 +1,55 @@
+footer {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  height: 130px;
+  padding: 10px;
+
+  background-color: black;
+
+  .menu {
+    display: flex;
+    height: 32px;
+
+    .filler {
+      flex-grow: 1;
+    }
+
+    .logo {
+      padding: 0;
+      margin: 0;
+      width: 32px;
+      height: 32px;
+      background-image: url("../img/abstractfactory-white-transparent.png");
+      background-size: 32px 32px;
+    }
+
+    a {
+      margin: 0;
+      padding: 0;
+      margin-right: 20px;
+      line-height: 32px;
+    }
+
+    .item {
+      z-index: 10;
+
+      border-bottom: 3px solid transparent;
+      transition: border-bottom-color 0.1s, transform 0.2s;
+
+      &:hover {
+        color: $blue;
+        border-bottom-color: $blue;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  #copyright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 30px;
+  }
+}

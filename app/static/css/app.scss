@@ -2,22 +2,17 @@
 @import "variables";
 @import "reset";
 @import "global";
+@import "bootstrap";
 @import "404";
+@import "markdown";
 @import "header";
+@import "footer";
 @import "section";
 @import "sidebar";
-@import "markdown";
 @import "syntax-highlighting";
 
 // Pages
+@import "home";
 @import "pricing";
 @import "kits";
 @import "guide";
-
-
-@media (max-width: 720px) {
-}
-
-@media (max-width: 480px) {
-
-}

@@ -53,8 +53,12 @@ table {
   font-family: "Lato";
   src: url("../font/Lato-Bold.ttf") format("truetype");
   font-weight: 700; }
+@font-face {
+  font-family: "Lato";
+  src: url("../font/Lato-Light.ttf") format("truetype");
+  font-weight: 200; }
 html {
-  font: 400 0.875em/1.58 "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font: 300 0.9em/1.28 "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   color: #787878;
   min-width: 650px;
   letter-spacing: 0.03em; }
@@ -68,34 +72,147 @@ html {
       color: #787878; }
   html h1, html h2, html h3, html h4, html p {
     cursor: default; }
+  html strong {
+    font-weight: bold; }
+  html h1 {
+    font-weight: 200;
+    font-size: 2.6em; }
+  html h2 {
+    font-size: 1.4em; }
+  html h3 {
+    font-size: 1.8em; }
   html p {
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 20px; }
 
 html, body, .wrapper {
   background-color: #fdfdfd; }
 
 .wrapper {
-  margin-top: 80px; }
+  display: flex;
+  justify-content: center; }
 
-.logo {
-  padding: 0;
-  margin: 0;
-  width: 32px;
-  height: 32px;
-  background-image: url("../img/logo_black_512x512.png");
-  background-size: 32px 32px; }
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.btn-square {
+  background: transparent;
+  border-radius: 0;
+  border-width: 3px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px; }
+  .btn-square:visited {
+    color: #fff; }
+  .btn-square:hover {
+    border-color: #fff;
+    background: transparent; }
 
 #fourofour {
   position: relative;
-  top: 100px;
-  width: 100%; }
+  background-color: brown;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
   #fourofour h1 {
     text-align: center;
     font-size: 3em; }
   #fourofour p {
     text-align: center;
     opacity: 0.5; }
+
+.markdown-viewport h1 {
+  padding-top: 200px;
+  padding-bottom: 20px;
+  font-size: 2.5em; }
+  .markdown-viewport h1:first-child {
+    padding-top: 0; }
+.markdown-viewport h2 {
+  font-size: 1.5em;
+  color: #393939; }
+.markdown-viewport h3 {
+  font-size: 1.3em; }
+.markdown-viewport h1, .markdown-viewport h2, .markdown-viewport h3 {
+  margin-bottom: 20px;
+  line-height: 1.1; }
+.markdown-viewport h3, .markdown-viewport h4, .markdown-viewport h5, .markdown-viewport h6 {
+  color: #494949; }
+.markdown-viewport p, .markdown-viewport ul, .markdown-viewport ol, .markdown-viewport table, .markdown-viewport pre, .markdown-viewport dl {
+  color: #787878;
+  margin: 0 0 20px; }
+  .markdown-viewport p ul, .markdown-viewport ul ul, .markdown-viewport ol ul, .markdown-viewport table ul, .markdown-viewport pre ul, .markdown-viewport dl ul {
+    margin: 0; }
+.markdown-viewport li {
+  margin-left: 40px;
+  line-height: 1.5em;
+  list-style: disc; }
+.markdown-viewport a {
+  color: #8d8d8d;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.1s; }
+  .markdown-viewport a small {
+    font-size: 11px;
+    color: #777;
+    margin-top: -0.6em;
+    display: block; }
+  .markdown-viewport a:hover {
+    color: #00adff; }
+  .markdown-viewport a.is-active {
+    color: #ed4877; }
+.markdown-viewport blockquote {
+  border-left: 5px solid #e5e5e5;
+  padding: 0 0 0 20px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 20px; }
+  .markdown-viewport blockquote p {
+    color: #999; }
+.markdown-viewport code, .markdown-viewport pre {
+  font-family: "Source Code Pro";
+  font-weight: 400;
+  color: #333;
+  font-size: 12px; }
+.markdown-viewport pre {
+  padding: 8px 15px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  overflow-x: auto; }
+.markdown-viewport table {
+  width: 100%;
+  border-collapse: collapse; }
+.markdown-viewport th, .markdown-viewport td {
+  text-align: left;
+  padding: 5px 10px;
+  border-bottom: 1px solid #e5e5e5; }
+.markdown-viewport dt {
+  color: #444;
+  font-weight: 700; }
+.markdown-viewport th {
+  color: #444; }
+.markdown-viewport img {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+.markdown-viewport strong {
+  color: #222;
+  font-weight: 700; }
+.markdown-viewport small {
+  font-size: 11px; }
+.markdown-viewport hr {
+  border: 0;
+  background: #e5e5e5;
+  height: 1px;
+  margin: 0 0 20px; }
+.markdown-viewport em {
+  font-style: italic; }
 
 /*
     
@@ -104,7 +221,19 @@ html, body, .wrapper {
   |________| |________| |________| |________|
 
 */
-header {
+#header #background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: 80px;
+  background-color: white;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  transition: height 0.5s; }
+  #header #background.translucent {
+    height: 0px; }
+#header header {
   position: fixed;
   display: flex;
   left: 0px;
@@ -112,43 +241,99 @@ header {
   top: 0px;
   height: 80px;
   padding: 20px;
-  background-color: rgba(253, 253, 253, 0.95);
-  z-index: 2; }
-  header .menu {
+  z-index: 4;
+  background-color: transparent; }
+  #header header.translucent a {
+    color: white; }
+    #header header.translucent a.btn {
+      background-color: transparent; }
+  #header header .logo {
+    padding: 0;
+    margin: 0;
+    width: 128px;
+    height: 32px;
+    background-image: url("../img/pyblish-black.png");
+    background-size: auto 32px;
+    background-repeat: no-repeat; }
+    #header header .logo.translucent {
+      width: 32px;
+      background-image: url("../img/pyblish-white.png"); }
+  #header header .menu {
     display: flex;
     flex-grow: 1;
     align-items: flex-start;
-    /*
-      Tweaks.
+      /*
+        Tweaks.
 
-      The last item shouldn't have a margin.
-      We'll also slightly move the tooltip as it would otherwise
-      get obscured by the right-hand side of the window.
+        The last item shouldn't have a margin.
+        We'll also slightly move the tooltip as it would otherwise
+        get obscured by the right-hand side of the window.
 
-    */ }
-    header .menu .filler {
+      */ }
+    #header header .menu .filler {
       flex-grow: 1; }
-    header .menu .item {
+    #header header .menu .item {
       display: block;
       flex-grow: 0;
       line-height: 32px;
       margin-right: 20px;
-      transition: border-bottom-color 0.1s;
-      z-index: 10; }
-      header .menu .item.btn {
+      transition: transform 0.2s, border 0.1s;
+      z-index: 10;
+      border-bottom: 0px solid transparent; }
+      #header header .menu .item.btn {
         padding: 5px;
         padding-top: 0;
-        padding-bottom: 0; }
-      header .menu .item.link {
-        border-bottom: 3px solid transparent; }
-        header .menu .item.link:hover {
-          border-bottom-color: #6CADD9; }
-    header .menu .download a {
+        padding-bottom: 0;
+        background-color: white;
+        transition: background-color 0.5s; }
+      #header header .menu .item:hover {
+        border-bottom-color: white;
+        border-bottom-width: 3px;
+        transform: translateY(-2px); }
+    #header header .menu .download a {
       margin-right: 0; }
-    header .menu .download .tooltip {
+    #header header .menu .download .tooltip {
       transform: translateX(-20px); }
-    header .menu .download .tooltip-arrow {
+    #header header .menu .download .tooltip-arrow {
       transform: translateX(20px); }
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 130px;
+  padding: 10px;
+  background-color: black; }
+  footer .menu {
+    display: flex;
+    height: 32px; }
+    footer .menu .filler {
+      flex-grow: 1; }
+    footer .menu .logo {
+      padding: 0;
+      margin: 0;
+      width: 32px;
+      height: 32px;
+      background-image: url("../img/abstractfactory-white-transparent.png");
+      background-size: 32px 32px; }
+    footer .menu a {
+      margin: 0;
+      padding: 0;
+      margin-right: 20px;
+      line-height: 32px; }
+    footer .menu .item {
+      z-index: 10;
+      border-bottom: 3px solid transparent;
+      transition: border-bottom-color 0.1s, transform 0.2s; }
+      footer .menu .item:hover {
+        color: #6CADD9;
+        border-bottom-color: #6CADD9;
+        transform: translateY(-2px); }
+  footer #copyright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 30px; }
 
 /*
 
@@ -170,8 +355,9 @@ section {
   position: relative;
   margin-left: 70px;
   margin-right: 70px;
-  padding-bottom: 130px;
+  margin-bottom: 130px;
   animation: fade 1s;
+  width: 750px;
   /*
   
     Headlines mostly fills the viewport with its header text.
@@ -188,26 +374,31 @@ section {
   section p {
     transition: opacity 0.1s;
     line-height: 1.5em; }
-  section.sidebar-visible {
-    margin-left: 300px; }
   section pb-headline div {
-    padding-top: 100px;
-    padding-bottom: 100px; }
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white; }
     section pb-headline div h1 {
       /* Main title */
       font-size: 6em;
-      font-weight: 700;
-      letter-spacing: 15px;
-      text-transform: uppercase; }
+      font-weight: 300;
+      letter-spacing: 15px; }
     section pb-headline div h2 {
       /* Subtitle */
       font-size: 1.2em;
-      margin-top: -30px;
+      margin-top: 20px;
       letter-spacing: 2px; }
-    section pb-headline div h1, section pb-headline div h2 {
+    section pb-headline div h1, section pb-headline div h2, section pb-headline div h3 {
       text-align: center; }
     section pb-headline div p {
       display: block;
+      color: white;
       margin-left: auto;
       margin-right: auto;
       margin-top: 20px;
@@ -220,6 +411,34 @@ section {
     margin-right: auto;
     width: 60px;
     height: 80px; }
+@keyframes pulse {
+  from {
+    bottom: 0;
+    opacity: 1.0; }
+  50% {
+    bottom: 0;
+    opacity: 1.0; }
+  90% {
+    bottom: -40px;
+    opacity: 0.0; }
+  91% {
+    bottom: 0;
+    opacity: 0.0; }
+  to {
+    bottom: 0;
+    opacity: 1.0; } }
+  section a i {
+    position: absolute;
+    height: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    animation-duration: 7s;
+    animation-name: pulse;
+    animation-iteration-count: infinite; }
 
 .navigation .next, .navigation .previous {
   position: fixed;
@@ -237,137 +456,14 @@ section {
 .navigation .next {
   width: 100px;
   right: 0px; }
-  .navigation .next.sidebar-visible {
-    right: 300px; }
   .navigation .next:hover img {
     margin-left: 10px; }
 .navigation .previous {
   width: 100px;
   left: 0px;
   transition: margin-right ease-out 0.1s; }
-  .navigation .previous.sidebar-visible {
-    left: 300px; }
   .navigation .previous:hover img {
     margin-left: -10px; }
-
-.sidebar {
-  background: white;
-  opacity: 0.9;
-  position: fixed;
-  top: 80px;
-  bottom: 0px;
-  left: 0px;
-  width: 300px;
-  z-index: 1;
-  padding-left: 50px; }
-  .sidebar ul div {
-    padding: 0;
-    margin: 0; }
-    .sidebar ul div:last-child p {
-      visibility: hidden; }
-  .sidebar ul li {
-    font-size: 1.0em;
-    margin: 0;
-    padding-left: 25px;
-    background: url("../img/list-style-image2.png") no-repeat 0px 0px; }
-    .sidebar ul li.active {
-      background: url("../img/list-style-image2-active.png") no-repeat 0px 0px; }
-      .sidebar ul li.active a {
-        color: black;
-        font-weight: 700; }
-  .sidebar ul p {
-    margin: 0;
-    padding: 0;
-    margin-bottom: -1px;
-    margin-left: 6px;
-    height: 15px;
-    border-left: 2px solid rgba(0, 0, 0, 0.2); }
-
-#guide h1 {
-  padding-top: 200px;
-  padding-bottom: 20px;
-  font-size: 2.5em; }
-  #guide h1:first-child {
-    padding-top: 0; }
-#guide h2 {
-  font-size: 1.5em;
-  color: #393939; }
-#guide h3 {
-  font-size: 1.3em; }
-#guide h1, #guide h2, #guide h3 {
-  margin-bottom: 20px;
-  line-height: 1.1; }
-#guide h3, #guide h4, #guide h5, #guide h6 {
-  color: #494949; }
-#guide p, #guide ul, #guide ol, #guide table, #guide pre, #guide dl {
-  color: #787878;
-  margin: 0 0 20px; }
-  #guide p ul, #guide ul ul, #guide ol ul, #guide table ul, #guide pre ul, #guide dl ul {
-    margin: 0; }
-#guide li {
-  margin-left: 40px;
-  line-height: 1.5em;
-  list-style: disc; }
-#guide a {
-  color: #8d8d8d;
-  font-weight: 400;
-  text-decoration: none;
-  transition: color 0.1s; }
-  #guide a small {
-    font-size: 11px;
-    color: #777;
-    margin-top: -0.6em;
-    display: block; }
-  #guide a:hover {
-    color: #00adff; }
-  #guide a.is-active {
-    color: #ed4877; }
-#guide blockquote {
-  border-left: 5px solid #e5e5e5;
-  padding: 0 0 0 20px;
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 20px; }
-  #guide blockquote p {
-    color: #999; }
-#guide code, #guide pre {
-  font-family: "Source Code Pro";
-  font-weight: 400;
-  color: #333;
-  font-size: 12px; }
-#guide pre {
-  padding: 8px 15px;
-  background: #f8f8f8;
-  border-radius: 5px;
-  border: 1px solid #e5e5e5;
-  overflow-x: auto; }
-#guide table {
-  width: 100%;
-  border-collapse: collapse; }
-#guide th, #guide td {
-  text-align: left;
-  padding: 5px 10px;
-  border-bottom: 1px solid #e5e5e5; }
-#guide dt {
-  color: #444;
-  font-weight: 700; }
-#guide th {
-  color: #444; }
-#guide img {
-  margin-top: 20px;
-  margin-bottom: 20px; }
-#guide strong {
-  color: #222;
-  font-weight: 700; }
-#guide small {
-  font-size: 11px; }
-#guide hr {
-  border: 0;
-  background: #e5e5e5;
-  height: 1px;
-  margin: 0 0 20px; }
-#guide em {
-  font-style: italic; }
 
 .highlight {
   background: #ffffff; }
@@ -650,6 +746,106 @@ section {
 .type-csharp .highlight .sc {
   color: #A31515; }
 
+#home #background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+#home #find-out-more {
+  height: 200px;
+  margin-bottom: 50px; }
+  #home #find-out-more #cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+#home #landingpage {
+  position: relative;
+  padding-top: 80px;
+  height: 100vh;
+  margin-bottom: 0; }
+#home #player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  visibility: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  text-align: center; }
+  #home #player.active {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5); }
+  #home #player iframe {
+    display: block;
+    width: 670px;
+    height: 350px; }
+#home #what-is-it .grid {
+  flex-wrap: nowrap; }
+  #home #what-is-it .grid img {
+    background-image: url("../img/sunset_bridge-wallpaper-2560x1920.jpg");
+    background-position: -475px -58px;
+    background-repeat: no-repeat;
+    background-size: 1200px;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 500px;
+    max-height: 500px;
+    margin-right: 50px; }
+#home #companies, #home #software {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  #home #companies h1, #home #software h1 {
+    padding-bottom: 30px; }
+  #home #companies a, #home #software a {
+    display: flex;
+    align-items: center;
+    cursor: default; }
+    #home #companies a img, #home #software a img {
+      margin: 20px;
+      width: auto; }
+  #home #companies p, #home #software p {
+    text-align: center; }
+#home #companies {
+  padding-top: 100px; }
+#home #stories h1 {
+  text-align: center; }
+#home #stories .grid .box {
+  color: white;
+  background-color: #222;
+  margin: 15px;
+  overflow: hidden;
+  max-width: 250px;
+  position: relative;
+  padding: 10px;
+  box-shadow: 1px 1px 2px 0px #AAA;
+  transition: box-shadow 0.1s; }
+  #home #stories .grid .box i {
+    font-style: normal;
+    color: #777; }
+  #home #stories .grid .box p, #home #stories .grid .box a, #home #stories .grid .box div {
+    position: relative;
+    z-index: 2; }
+  #home #stories .grid .box p {
+    margin: 0;
+    padding: 0; }
+
 /*
 
   Prices are displayed in columns, all in a single row.
@@ -823,77 +1019,121 @@ section {
   font-family: "Source Code Pro";
   src: url("../font/SourceCodePro-Semibold.ttf") format("truetype");
   font-weight: 700; }
-.wrapper {
-  height: initial;
-  margin-left: 50px;
-  margin-right: 50px; }
-
 #guide {
-  max-width: 740px;
-  min-width: 400px; }
-  #guide h1 {
-    margin-top: 200px;
-    font-size: 2.5em; }
-    #guide h1:first-child {
-      margin-top: 0; }
-  #guide h2 {
-    font-size: 1.5em;
-    color: #393939; }
-  #guide h3 {
-    font-size: 1.3em; }
-  #guide h1, #guide h2, #guide h3 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    line-height: 1.1; }
-  #guide h3, #guide h4, #guide h5, #guide h6 {
-    color: #494949; }
-  #guide p, #guide ul, #guide ol, #guide table, #guide pre, #guide dl, #guide blockquote {
-    color: #787878;
-    margin-top: 20px;
-    margin-bottom: 20px; }
-  #guide li {
-    margin-left: 40px;
-    line-height: 1.5em;
-    list-style: disc; }
-  #guide a {
-    color: #8d8d8d;
+  font-family: "Lato"; }
+  #guide #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
+  #guide .landingpage {
+    position: relative;
+    padding-top: 80px;
+    height: 100vh;
+    margin-bottom: 0; }
+  #guide #viewport {
+    display: flex;
+    flex-wrap: nowrap;
     font-weight: 400;
-    text-decoration: none;
-    transition: color 0.1s; }
-    #guide a small {
-      font-size: 11px;
-      color: #777;
-      margin-top: -0.6em;
-      display: block; }
-    #guide a:hover {
-      color: #00adff; }
-    #guide a.is-active {
-      color: #ed4877; }
-  #guide table {
-    width: 100%;
-    border-collapse: collapse; }
-  #guide th, #guide td {
-    text-align: left;
-    padding: 5px 10px;
-    border-bottom: 1px solid #e5e5e5; }
-  #guide dt {
-    color: #444;
-    font-weight: 700; }
-  #guide th {
-    color: #444; }
-  #guide img {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    max-width: 100%; }
-  #guide strong {
-    color: #222;
-    font-weight: 700; }
-  #guide small {
-    font-size: 11px; }
-  #guide hr {
-    border: 0;
-    background: #e5e5e5;
-    height: 1px;
-    margin: 0 0 20px; }
+    font-family: Lato;
+    padding-top: 110px; }
+    #guide #viewport h1 {
+      margin-top: 200px;
+      font-size: 2.5em; }
+      #guide #viewport h1:first-child {
+        margin-top: 0; }
+    #guide #viewport h2 {
+      font-size: 1.5em;
+      color: #393939; }
+    #guide #viewport h3 {
+      font-size: 1.3em; }
+    #guide #viewport h1, #guide #viewport h2, #guide #viewport h3 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      line-height: 1.1; }
+    #guide #viewport h3, #guide #viewport h4, #guide #viewport h5, #guide #viewport h6 {
+      color: #494949; }
+    #guide #viewport p, #guide #viewport ul, #guide #viewport ol, #guide #viewport table, #guide #viewport pre, #guide #viewport dl, #guide #viewport blockquote {
+      color: #787878;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+    #guide #viewport li {
+      margin-left: 40px;
+      line-height: 1.5em;
+      list-style: disc; }
+    #guide #viewport a {
+      color: #8d8d8d;
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.1s; }
+      #guide #viewport a small {
+        font-size: 11px;
+        color: #777;
+        margin-top: -0.6em;
+        display: block; }
+      #guide #viewport a:hover {
+        color: #00adff; }
+      #guide #viewport a.is-active {
+        color: #ed4877; }
+    #guide #viewport table {
+      width: 100%;
+      border-collapse: collapse; }
+    #guide #viewport th, #guide #viewport td {
+      text-align: left;
+      padding: 5px 10px;
+      border-bottom: 1px solid #e5e5e5; }
+    #guide #viewport dt {
+      color: #444;
+      font-weight: 700; }
+    #guide #viewport th {
+      color: #444; }
+    #guide #viewport img {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      max-width: 100%; }
+    #guide #viewport strong {
+      color: #222;
+      font-weight: 700; }
+    #guide #viewport small {
+      font-size: 11px; }
+    #guide #viewport hr {
+      border: 0;
+      background: #e5e5e5;
+      height: 1px;
+      margin: 0 0 20px; }
+  #guide #sidebar {
+    width: 400px;
+    padding-right: 100px; }
+    #guide #sidebar ul div {
+      padding: 0;
+      margin: 0; }
+      #guide #sidebar ul div:last-child p {
+        visibility: hidden; }
+    #guide #sidebar ul li {
+      margin: 0;
+      padding-left: 25px;
+      background: url("../img/list-style-image2.png") no-repeat 0px 0px;
+      line-height: inherit;
+      list-style: none; }
+      #guide #sidebar ul li a {
+        font-size: 14px; }
+      #guide #sidebar ul li.active {
+        background: url("../img/list-style-image2-active.png") no-repeat 0px 0px; }
+        #guide #sidebar ul li.active a {
+          color: black;
+          font-weight: 700; }
+    #guide #sidebar ul p {
+      margin: 0;
+      padding: 0;
+      margin-bottom: -1px;
+      margin-left: 6px;
+      height: 15px;
+      border-left: 2px solid rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,137 @@
+@keyframes fade {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes slide {
+  from {
+    left: -20px; }
+  to {
+    left: 0px; } }
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("../font/SourceCodePro-Regular.ttf") format("truetype");
+  font-weight: 400; }
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("../font/SourceCodePro-Semibold.ttf") format("truetype");
+  font-weight: 700; }
+#guide {
+  font-family: "Lato"; }
+  #guide #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
+  #guide .landingpage {
+    position: relative;
+    padding-top: 80px;
+    height: 100vh; }
+  #guide #viewport {
+    max-width: 600px;
+    min-width: 400px; }
+    #guide #viewport h1 {
+      margin-top: 200px;
+      font-size: 2.5em; }
+      #guide #viewport h1:first-child {
+        margin-top: 0; }
+    #guide #viewport h2 {
+      font-size: 1.5em;
+      color: #393939; }
+    #guide #viewport h3 {
+      font-size: 1.3em; }
+    #guide #viewport h1, #guide #viewport h2, #guide #viewport h3 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      line-height: 1.1; }
+    #guide #viewport h3, #guide #viewport h4, #guide #viewport h5, #guide #viewport h6 {
+      color: #494949; }
+    #guide #viewport p, #guide #viewport ul, #guide #viewport ol, #guide #viewport table, #guide #viewport pre, #guide #viewport dl, #guide #viewport blockquote {
+      color: #787878;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+    #guide #viewport li {
+      margin-left: 40px;
+      line-height: 1.5em;
+      list-style: disc; }
+    #guide #viewport a {
+      color: #8d8d8d;
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.1s; }
+      #guide #viewport a small {
+        font-size: 11px;
+        color: #777;
+        margin-top: -0.6em;
+        display: block; }
+      #guide #viewport a:hover {
+        color: #00adff; }
+      #guide #viewport a.is-active {
+        color: #ed4877; }
+    #guide #viewport table {
+      width: 100%;
+      border-collapse: collapse; }
+    #guide #viewport th, #guide #viewport td {
+      text-align: left;
+      padding: 5px 10px;
+      border-bottom: 1px solid #e5e5e5; }
+    #guide #viewport dt {
+      color: #444;
+      font-weight: 700; }
+    #guide #viewport th {
+      color: #444; }
+    #guide #viewport img {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      max-width: 100%; }
+    #guide #viewport strong {
+      color: #222;
+      font-weight: 700; }
+    #guide #viewport small {
+      font-size: 11px; }
+    #guide #viewport hr {
+      border: 0;
+      background: #e5e5e5;
+      height: 1px;
+      margin: 0 0 20px; }
+  #guide #sidebar {
+    opacity: 0.9;
+    position: fixed;
+    top: 80px;
+    bottom: 0px;
+    left: 0px;
+    width: 300px;
+    z-index: 1;
+    padding-left: 50px; }
+    #guide #sidebar ul div {
+      padding: 0;
+      margin: 0; }
+      #guide #sidebar ul div:last-child p {
+        visibility: hidden; }
+    #guide #sidebar ul li {
+      font-size: 1.0em;
+      margin: 0;
+      padding-left: 25px;
+      background: url("../img/list-style-image2.png") no-repeat 0px 0px;
+      line-height: inherit;
+      list-style: none; }
+      #guide #sidebar ul li.active {
+        background: url("../img/list-style-image2-active.png") no-repeat 0px 0px; }
+        #guide #sidebar ul li.active a {
+          color: black;
+          font-weight: 700; }
+    #guide #sidebar ul p {
+      margin: 0;
+      padding: 0;
+      margin-bottom: -1px;
+      margin-left: 6px;
+      height: 15px;
+      border-left: 2px solid rgba(0, 0, 0, 0.2); }
+
+/*# sourceMappingURL=_guide.css.map */
