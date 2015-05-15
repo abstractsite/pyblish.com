@@ -13,36 +13,12 @@ $font-color-light: #999;
 #guide {
   font-family: "Lato";
 
-  #background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-
-    // background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
-    background-color: #333;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .landingpage {
-    position: relative;
-    padding-top: $header-height;
-    height: 100vh;
-    margin-bottom: 0;
-  }
-
   #viewport {
     display: flex;
     flex-wrap: nowrap;
 
     font-weight: 400;
     font-family: Lato;
-
-    padding-top: 110px;
 
     h1 {
       margin-top: 200px;

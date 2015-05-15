@@ -12,38 +12,27 @@
     </a>
     <div class="menu">
       <div class="filler"></div>
-      <a class="item"
-        href="/">
-          Home
-        </a>
-      
-      <a class="item"
-        href="/guide">
-          Guide
+      <a
+        ng-href="{{ item.link }}"
+        class="item"
+        ng-repeat="item in items">
+          {{ item.title }}
       </a>
 
-      <a class="item"
-        target="_blank"
-        href="https://gitter.im/pyblish/pyblish"
-        tooltip="Go to chat"
-        tooltip-placement="bottom">
-          Chat
-      </a>
-      
-      <a class="item"
-        target="_blank"
-        href="http://forums.pyblish.com"
-        tooltip="Go to forums"
-        tooltip-placement="bottom">
-          Forums
-      </a>
-      <a class="item"
-        target="_blank"
-        href="https://github.com/pyblish/pyblish.api/wiki"
-        tooltip="Go to API documentation"
-        tooltip-placement="bottom">
-          API
-      </a>
+      <span class="dropdown item" dropdown on-toggle="toggled(open)">
+        <a href class="dropdown-toggle" dropdown-toggle>
+          More
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="item in moreitems">
+            <a
+              target="_blank"
+              ng-href="{{ item.link }}">
+                {{ item.title }}
+            </a>
+          </li>
+        </ul>
+      </span>
 
       <div class="download">
         <a

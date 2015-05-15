@@ -1,3 +1,6 @@
+@font-face { font-family: "Lato"; src: url("../font/Lato-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "Lato"; src: url("../font/Lato-Bold.ttf") format("truetype"); font-weight: 700; }
+@font-face { font-family: "Lato"; src: url("../font/Lato-Light.ttf") format("truetype"); font-weight: 200; }
 
 @import "variables";
 @import "reset";
@@ -10,6 +13,7 @@
 @import "section";
 @import "sidebar";
 @import "syntax-highlighting";
+@import "hljs";
 
 // Pages
 @import "home";

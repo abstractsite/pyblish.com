@@ -34,6 +34,18 @@
             });
         });
 
-    });
+        $scope.items = [
+            {title: "Home", link: "/"},
+            {title: "Guide", link: "/guide"},
+            {title: "Pricing", link: "/pricing"},
+            {title: "About", link: "/about"},
+        ];
 
+        $scope.moreitems = [
+            {title: "Forums", link: "http://forums.pyblish.com", tooltip: "Go to forums"},
+            {title: "Chat", link: "https://gitter.im/pyblish/pyblish", tooltip: "Go to chat"},
+            {title: "API", link: "https://github.com/pyblish/pyblish.api/wiki", tooltip: "Go to API documentation"},
+            {title: "Source code", link: "https://github.com/pyblish", tooltip: "Dive into the source code"},
+        ];
+    });
 }());

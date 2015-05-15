@@ -1,18 +1,63 @@
 
-<!-- Pricing -->
+<div class="page" id="pricing">
 
-<div id="pricing">
-  <section>
+  <div id="background"></div>
+
+  <section class="landingpage">
     <pb-headline
-      title="Pricing">
-        Try things out, make yourself at home
+      title="pricing"
+      subtitle="Get your hands on Pyblish">
     </pb-headline>
 
-    <div class="prices">
-      <pb-price type="free"></pb-price>
-      <pb-price type="kit"></pb-price>
-      <pb-price type="tailored"></pb-price>
-      <pb-price type="bespoke"></pb-price>
-    </div> <!-- /prices -->
-  </section> <!-- section end -->
+    <a href="" ng-click="scrollTo('find-out-more-prices')">
+      <i class="fa fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <div id="find-out-more-prices" class="find-out-more">
+    <div class="cover">
+      <h1>Pyblish is free software, licensed under LGPL3.</h1>
+      <a
+        href="/guide"
+        role="button"
+        class="btn btn-default btn-square">
+          Find out more
+      </a>
+    </div>
+  </div>
+
+  <div class="find-out-more">
+    <div class="cover">
+      <h1>Looking for professional services?</h1>
+      <a
+        href="mailto:hello@abstractfactory.io"
+        role="button"
+        class="btn btn-default btn-square">
+          Get in contact
+      </a>
+    </div>
+  </div>
+<!-- 
+  <section>
+    <div id="prices">
+      <div class="price" ng-repeat="price in ctrl.prices">
+        <h2>{{ price.title }}</h2>
+
+        <p class="location">{{ price.location }}</p>
+        <p class="description">{{ price.description }}</p>
+
+        <ul>
+          <li ng-repeat="feature in price.features">{{ feature }}</li>
+        </ul>
+
+        <a
+          role="button"
+          class="btn btn-default"
+          href="{{ price.link }}">
+            More
+        </a>
+      </div>
+    </div>
+  </section>
+ -->
 </div>

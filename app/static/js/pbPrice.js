@@ -4,9 +4,14 @@
 
 (function () {
 
-    var app = angular.module("pyblishApp"),
-        types = {
-            free: {
+    var app = angular.module("pyblishApp");
+
+    app.controller("priceController", function () {
+        var self;
+
+        self = this;
+        self.prices = [
+            {
                 title: "Free",
                 location: "Forever",
                 description: "Start building your pipeline today. Perfect for the developer with a lust for full control.",
@@ -14,7 +19,7 @@
                            "Cross-platform",
                            "Integration API"]
             },
-            kit: {
+            {
                 title: "Kit",
                 location: "License",
                 description: "Get up and running quickly with pre-packaged, fully documented and tested workflow kits.",
@@ -22,7 +27,7 @@
                            "Documented/tested",
                            "Community support"]
             },
-            tailored: {
+            {
                 title: "Tailored",
                 location: "On-premise",
                 description: "Tailor a pipeline to suit your exact needs, no compromise, full support.",
@@ -31,13 +36,14 @@
                            "Support",
                            "1-4 weeks"]
             },
-            bespoke: {
+            {
                 title: "Bespoke",
                 location: "On-premise",
                 description: "Got something else on your mind? Let's talk.",
                 features: ["1-4 months"]
             }
-        };
+        ];
+    });
 
     app.directive("pbPrice", function () {
 

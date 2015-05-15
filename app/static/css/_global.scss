@@ -1,7 +1,3 @@
-@font-face { font-family: "Lato"; src: url("../font/Lato-Regular.ttf") format("truetype"); font-weight: 400; }
-@font-face { font-family: "Lato"; src: url("../font/Lato-Bold.ttf") format("truetype"); font-weight: 700; }
-@font-face { font-family: "Lato"; src: url("../font/Lato-Light.ttf") format("truetype"); font-weight: 200; }
-
 
 html {
   // font: 400 1em/1.58 "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -64,4 +60,57 @@ html, body, .wrapper {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+
+.page {
+  #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .landingpage {
+    position: relative;
+    padding-top: $header-height;
+    padding-bottom: 100px;
+    height: 100vh;
+    margin-top: 0;
+  }
+}
+
+.filler {
+  margin-top: 130px;
+}
+
+.find-out-more {
+  height: 200px;
+
+  .cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background-color: #222;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    h1 {
+      color: #515151;
+      padding-bottom: 20px;
+      font-size: 2.1em;
+    }
+  }
 }

@@ -1,24 +1,19 @@
-<div id="home">
+<div class="page" id="home">
 
   <div id="background"></div>
 
-  <section id="landingpage">
-
+  <section class="landingpage">
     <pb-headline
       id="main-title"
       title="pyblish"
       subtitle="A publishing framework">
-    
       <br>
-
       <a
         href=""
         ng-click="ctrl.showPlayer=true">
           <img id="play" src="static/img/play-white.png" alt="">
       </button>
-
     </pb-headline>
-
 
     <a
       id="player"
@@ -33,8 +28,9 @@
 
   </section>
 
-  <div id="find-out-more">
-    <div id="cover">
+  <div class="find-out-more first">
+    <div class="cover">
+      <h1>Cross-platform, language and software agnostic.</h1>
       <a
         href="/guide"
         role="button"
@@ -43,8 +39,28 @@
       </a>
     </div>
   </div>
+<!-- 
+  <section id="example">
 
-  <i style="height=200px; width:1px"></i>
+    <h1>Intuitive Python</h1>
+
+    <p>
+      Write effortlessly with the PEP08 conformant API.
+    </p>
+
+    <pre><code class="python">
+from pyblish.api import Validator
+
+class ValidateAsset(Validator):
+  def process(self, context):
+    assert context.data("user") == "marcus", "Permission denied"
+
+    </code></pre>
+    
+  </section>
+ -->
+  
+  <div class="filler"></div>
 
   <section id="companies">
     <div class="background"></div>
@@ -54,14 +70,18 @@
     <div class="grid">
       <a
         href=""
-        ng-repeat="i in ctrl.companies">
+        ng-repeat="i in ctrl.companies"
+        tooltip="{{i.company.name}}"
+        tooltip-placement="top">
         <img
-          ng-src="{{i.src}}"
+          ng-src="{{i.company.logo}}"
           height="{{i.height}}"
           alt="">
       </a>
     </div>
   </section>
+
+  <div class="filler"></div>
 
   <section id="software">
     <h1>Plays well with others</h1>
@@ -84,9 +104,11 @@
     </div>
   </section>
 
+  <div class="filler"></div>
 
-  <div id="find-out-more">
-    <div id="cover">
+  <div class="find-out-more">
+    <div class="cover">
+      <h1>Build once, use everywhere.</h1>
       <a
         href="/guide"
         role="button"
@@ -96,40 +118,30 @@
     </div>
   </div>
 
+  <div class="filler"></div>
 
-  <section id="what-is-it">
+  <section id="why-like-it">
     <div class="grid">
-      <img>
+      <div id="why-like-it-images">
+        <i class="fa fa-desktop"></i>
+        <i class="fa fa-cog"></i>
+      </div>
       <div>
         <h3>Why do developers like it?</h3>
         <p>
-          With Pyblish, developers can build better and more robust pipelines by leveraging a well documented, thoroughly tested and open source solution and provide artists with the tools they need to produce consistent results.
+          With Pyblish, developers can build a single and cohesive publishing pipeline for every software package, every production.
         </p>
-
-        <p>
-          Developers can get going quickly with ready-made collections of validation, extraction and integration processes produced and contributed by artists and developers around from the globe.
-        </p>
-
-        <p>
-          Pyblish helps developers build better and more robust pipelines.
-        </p>
-
         <br>
         <br>
-
-        <h3>Why do artists like it?</h3>
-        
+        <h3>Why do artists like it?</h3>        
         <p>
-          With an intuitive interface and direct access to the information they need to ensure quality and consistency in their work, artists gain confidence in knowing that whatever they manage to push through the publishing pipeline is up-to-par with the expectations of the team.
+          Artists are given confidence in knowing that whatever they manage to push through the pipeline is up-to-par with the expectations of the team.
         </p>
-
-        <p>
-          Pyblish helps artists create better content faster.
-        </p>
-
       </div>
     </div>
   </section>
+
+  <div class="filler"></div>
 
   <section id="stories">
     <h1>Customer stories</h1>
@@ -138,16 +150,18 @@
 
     <div class="grid">
       <div class="box" ng-repeat="s in ctrl.stories">
-        <p>{{s.story}}</p>
+        <p>{{ s.story }}</p>
         <br>
         <i>
-          <p>{{s.name}}</p>
-          <p>{{s.company.name}}</p>
+          <p>{{ s.person.name }}</p>
+          <p>{{ s.person.role }} at {{s.company.name}}</p>
         </i>
-        <!-- <a href="{{s.link}}" target="_blank"></a> -->
       </div>
     </div>
   </section>
+
+  <div class="filler"></div>
+
   <footer>
     <div class="menu">
       <a
@@ -160,8 +174,8 @@
 
       <div class="filler"></div>
 
-      <a class="item" href="/terms">Terms of use</a>
-      <a class="item" href="/privacy">Privacy policy</a>
+      <!-- <a class="item" href="/terms">Terms of use</a> -->
+      <!-- <a class="item" href="/privacy">Privacy policy</a> -->
       <a class="item" href="/jobs">Jobs</a>
       <a class="item" target="_blank" href="http://abstractfactory.io">Company</a>
     </div>

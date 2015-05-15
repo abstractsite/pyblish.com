@@ -10,7 +10,10 @@
                                             "restangular"]);
 
     app.run(function ($rootScope, $location, $anchorScroll) {
+        $anchorScroll.yOffset = 130;
+
         $rootScope.scrollTo = function (id) {
+            console.log("Helo");
             var old = $location.hash();
 
             $location.hash(id);
@@ -39,7 +42,9 @@
                 templateUrl: "static/views/kits.html"
             })
             .when("/pricing", {
-                templateUrl: "static/views/pricing.html"
+                templateUrl: "static/views/pricing.html",
+                controller: "priceController",
+                controllerAs: "ctrl"
             })
             .when("/guide", {
                 redirectTo: "/guide/overview"
@@ -48,6 +53,12 @@
                 templateUrl: "static/views/guide.html",
                 controller: "guideController",
                 controllerAs: "ctrl"
+            })
+            .when("/about", {
+                templateUrl: "static/views/about.html"
+            })
+            .when("/jobs", {
+                templateUrl: "static/views/jobs.html"
             })
             .when("/404", {
                 templateUrl: "static/views/404.html"
@@ -87,16 +98,20 @@
     });
 
     app.controller("homeController", function ($sce) {
-        var self;
+        var self,
+            persons,
+            companies;
+
+        hljs.initHighlighting();
 
         self = this;
 
         self.showPlayer = false;
         self.playerUrl = $sce.trustAsResourceUrl("https://player.vimeo.com/video/117184207");
 
-        self._companies = {
+        companies = {
             realise: {
-                name: "Realise Studio",
+                name: "Realise",
                 logo: "static/img/companies/realise.png",
                 link: "http://www.realisestudio.com/",
                 employees: "10-20"
@@ -120,7 +135,7 @@
                 employees: "10-20",
             },
             ttgames: {
-                name: "Traveller's Tales Games",
+                name: "TT Games",
                 logo: "static/img/companies/ttgames.png",
                 link: "http://www.ttgames.com/",
                 employees: "200-300",
@@ -136,62 +151,124 @@
                 link: "http://www.kredenc.org",
                 employees: "2-15",
             },
+            primefocus: {
+                name: "Prime Focus",
+                logo: "static/img/companies/primefocus.png",
+                link: "http://www.primefocus.com",
+                employees: "200-300",
+            },
+            bumpybox: {
+                name: "Bumpybox",
+                logo: "static/img/companies/bumpybox.png",
+                link: "http://www.bumpybox.com",
+                employees: "3-10"
+            },
+            clothcat: {
+                name: "Cloth Cat Animation",
+                logo: "static/img/companies/clothcat.png",
+                link: "http://www.bumpybox.com",
+                employees: "3-10"
+            },
+        };
+
+        // Persons, by GitHub id
+        persons = {
+            tokejepsen: {
+                name: "Toke Jepsen",
+                role: "Technical Director"
+            },
+            davidmartinezanim: {
+                name: "David Martinez",
+                role: "Character TD"
+            },
+            larsbijl: {
+                name: "Lars van der Bijl",
+                role: "Head of Pipeline"
+            },
+            bigroy: {
+                name: "Roy Nieterau",
+                role: "Director"
+            },
+            svenni: {
+                name: "Sveinbjörn J. Tryggvason",
+                role: "Technical Director"
+            },
+            mkolar: {
+                name: "Milan Kolar",
+                role: "VFX Supervisor"
+            },
+            ljkart: {
+                name: "Liju Kunnummal",
+                role: "Character TD"
+            }
         };
 
         self.companies = [
-            {src: "static/img/companies/realise.png", height: 30},
-            {src: "static/img/companies/caoz.png", height: 30},
-            {src: "static/img/companies/colorbleed.png", height: 40},
-            {src: "static/img/companies/bait.png", height: 30},
-            {src: "static/img/companies/ttgames.png", height: 60},
-            {src: "static/img/companies/filmgate.png", height: 30},
-            {src: "static/img/companies/kredenc.png", height: 60},
+            {company: companies.realise, height: 30},
+            {company: companies.caoz, height: 30},
+            {company: companies.colorbleed, height: 40},
+            // {company: companies.bait, height: 30},
+            // {company: companies.ttgames, height: 60},
+            // {company: companies.clothcat, height: 60},
+            {company: companies.filmgate, height: 40},
+            {company: companies.kredenc, height: 60},
+            {company: companies.bumpybox, height: 50},
         ];
+
         self.software = [
-            {src: "static/img/software/maya.png", height: 50, tooltip: "Autodesk Maya"},
-            {src: "static/img/software/softimage.png", height: 50, tooltip: "Autodesk Softimage"},
-            {src: "static/img/software/3dsmax.png", height: 50, tooltip: "Autodesk 3ds Max"},
+            {src: "static/img/software/maya.png", height: 60, tooltip: "Autodesk Maya"},
+            {src: "static/img/software/softimage.png", height: 30, tooltip: "Autodesk Softimage"},
+            {src: "static/img/software/3dsmax.png", height: 35, tooltip: "Autodesk 3ds Max"},
             {src: "static/img/software/nuke.png", height: 50, tooltip: "The Foundry Nuke"},
-            {src: "static/img/software/modo.png", height: 50, tooltip: "The Foundry Modo"},
+            {src: "static/img/software/modo.png", height: 25, tooltip: "The Foundry Modo"},
             {src: "static/img/software/clarisse.png", height: 25, tooltip: "Isotropix Clarisse"},
             {src: "static/img/software/houdini.png", height: 50, tooltip: "SideFx Houdini"},
-            {src: "static/img/software/ftrack.png", height: 50, tooltip: "Ftrack"},
+            {src: "static/img/software/ftrack.png", height: 30, tooltip: "Ftrack"},
             {src: "static/img/software/shotgun.png", height: 25, tooltip: "Shotgun"},
         ];
+
         self.stories = [
             {
-                name: "David Martinez",
-                story: "Pyblish is awesome",
-                company: self._companies.ttgames,
+                story: "I love Pyblish!",
+                company: companies.ttgames,
+                person: persons.davidmartinezanim
             },
             {
-                name: "Lars van der Byl",
                 story: "We submit everything using Pyblish.",
-                company: self._companies.realise,
+                company: companies.realise,
+                person: persons.larsbijl,
             },
             {
-                name: "Toke Jepsen",
-                story: "Pyblish is awesome",
-                company: self._companies.bait,
+                story: "Pyblish is what enables our artists to focus more \
+                        on the artistic barrier of raising quality instead \
+                        of the technical one whilst maintaining a pipeline \
+                        that raises the bar for both.",
+                company: companies.colorbleed,
+                person: persons.bigroy,
             },
             {
-                name: "Sveinbjörn J. Tryggvason",
-                story: "We use Pyblish with Softimage and built a bespoke \
-                       frontend based on our particular needs, the intuitive and \
-                       well defined API was of big help here.",
-                company: self._companies.caoz,
+                story: "I'm boarding this ship.",
+                company: companies.kredenc,
+                person: persons.mkolar,
             },
             {
-                name: "Milan Kolar",
-                story: "I'm boarding this ship!",
-                company: self._companies.kredenc,
+                story: "Clean, small yet powerful. Redefined the way content has been saved and visualized.",
+                company: companies.primefocus,
+                person: persons.ljkart,
             },
             {
-                name: "Roy Nieterau",
-                story: "Pyblish is awesome! And this is a very very long comment, really loooong!",
-                company: self._companies.colorbleed,
+                story: "Working across multiple pipelines, Pyblish is \
+                        a much needed common framework. Pyblish allows \
+                        me fix problems in one production and instantly \
+                        propagate the solutions to other productions.",
+                company: companies.bait,
+                person: persons.tokejepsen,
             },
+            // {
+            //     story: "A long placeholer, very very loooong. But not that long.",
+            //     company: companies.caoz,
+            //     person: persons.svenni,
+            // },
         ];
     });
-
 }());
