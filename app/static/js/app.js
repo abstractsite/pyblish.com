@@ -212,10 +212,10 @@
             {company: companies.colorbleed, height: 40},
             {company: companies.bait, height: 30},
             // {company: companies.ttgames, height: 60},
-            // {company: companies.clothcat, height: 60},
             {company: companies.filmgate, height: 40},
             {company: companies.kredenc, height: 60},
-            {company: companies.bumpybox, height: 50},
+            {company: companies.bumpybox, height: 60},
+            {company: companies.clothcat, height: 60},
         ];
 
         self.software = [
