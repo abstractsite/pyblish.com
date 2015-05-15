@@ -9,7 +9,7 @@ previous: /guide/faq
 Remember that you can always get in contact with a human, via Gitter or email.
 
 - [Gitter](https://gitter.im/pyblish/pyblish)
-- [Email](mailto:contact@abstractfactory.io)
+- [Email](mailto:hello@abstractfactory.io)
 
 > ImportError: Error: Couldn't find pyblish_maya on your PYTHONPATH
 
