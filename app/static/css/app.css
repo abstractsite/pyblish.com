@@ -460,12 +460,6 @@ section {
       max-width: 500px;
       text-align: center;
       color: #c5c5c5; }
-  section #play {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60px;
-    height: 80px; }
 @keyframes pulse {
   from {
     bottom: 0;
@@ -818,6 +812,16 @@ section {
   background-position: center; }
 #home .find-out-more.first {
   margin-top: 0px; }
+#home #play {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  height: 80px;
+  opacity: 0.9;
+  transition: opacity 0.1s; }
+  #home #play:hover {
+    opacity: 1.0; }
 #home #player {
   position: fixed;
   top: 0;

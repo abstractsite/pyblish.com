@@ -1,6 +1,5 @@
 
 #home {
-
   .background {
     position: absolute;
     top: 0;
@@ -17,6 +16,21 @@
 
   .find-out-more.first {
     margin-top: 0px;
+  }
+  
+  #play {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+    height: 80px;
+    opacity: 0.9;
+
+    transition: opacity 0.1s;
+
+    &:hover {
+      opacity: 1.0;
+    }
   }
 
   #player {
