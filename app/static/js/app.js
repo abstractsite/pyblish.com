@@ -9,7 +9,7 @@
                                             "ui.bootstrap",
                                             "restangular"]);
 
-    app.run(function ($rootScope, $location, $anchorScroll) {
+    app.run(function ($rootScope, $location, $anchorScroll, $window) {
         $anchorScroll.yOffset = 130;
 
         $rootScope.scrollTo = function (id) {
@@ -20,6 +20,9 @@
             $anchorScroll();
             $location.hash(old);
         };
+
+        $window.viewportUnitsBuggyfill.init();
+
     });
 
     app.filter('titlecase', function () {
@@ -102,7 +105,7 @@
             persons,
             companies;
 
-        hljs.initHighlighting();
+        // hljs.initHighlighting();
 
         self = this;
 

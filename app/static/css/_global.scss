@@ -64,7 +64,7 @@ html, body, .wrapper {
 
 
 .page {
-  #background {
+  .background {
     position: absolute;
     top: 0;
     left: 0;
@@ -82,7 +82,8 @@ html, body, .wrapper {
     position: relative;
     padding-top: $header-height;
     padding-bottom: 100px;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
     margin-top: 0;
   }
 }

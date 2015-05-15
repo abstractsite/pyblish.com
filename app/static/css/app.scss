@@ -20,3 +20,9 @@
 @import "pricing";
 @import "kits";
 @import "guide";
+
+@media only screen and (max-device-width: 480px) {
+  #home .background {
+    background-image: url("../img/downtown_bay_bridge_sa-600x338.jpg");
+  }
+}
