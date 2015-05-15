@@ -9,7 +9,6 @@ index = "static/index.html"
 
 def _response_develop():
     """During development, do not cache"""
-    log.debug("Running development server")
     with open(index) as f:
         content = f.read()
     return flask.make_response(content)
@@ -17,7 +16,6 @@ def _response_develop():
 
 def _response_production():
     """During production, cache for improved performance"""
-    log.debug("Running production server")
     return flask.send_file(index)
 
 
