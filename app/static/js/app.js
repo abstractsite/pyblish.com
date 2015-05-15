@@ -210,7 +210,7 @@
             {company: companies.realise, height: 30},
             {company: companies.caoz, height: 30},
             {company: companies.colorbleed, height: 40},
-            // {company: companies.bait, height: 30},
+            {company: companies.bait, height: 30},
             // {company: companies.ttgames, height: 60},
             // {company: companies.clothcat, height: 60},
             {company: companies.filmgate, height: 40},
