@@ -839,8 +839,10 @@ section {
   #home #player.active {
     visibility: visible;
     background-color: rgba(0, 0, 0, 0.5); }
+    #home #player.active iframe {
+      display: block; }
   #home #player iframe {
-    display: block;
+    display: none;
     width: 670px;
     height: 350px; }
 #home #why-like-it .grid {
