@@ -21,7 +21,7 @@
                  version.indexOf("Mac") !== -1 ? {name: "OSX", link: "osx"} :
                  version.indexOf("X11") !== -1 ? {name: "Linux", link: "linux"} :
                  version.indexOf("Linux") !== -1 ? {name: "Linux", link: "linux"} :
-                 "unknown";
+                 {name: "Unknown"};
 
         console.log("OS is", os.name);
 

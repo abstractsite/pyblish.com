@@ -36,13 +36,14 @@
 
       <div class="download">
         <a
-          ng-href="https://github.com/pyblish/pyblish-{{ os.link }}/releases/latest"
+          ng-href="https://github.com/pyblish/pyblish-{{ os.link }}/wiki/installation"
           role="button"
           target="_blank"
-          tooltip="Download for {{ os.name }}"
+          ng-show="os.name == 'Unknown' ? false : true"
+          tooltip="Install for {{ os.name }}"
           tooltip-placement="bottom"
           class="btn btn-default">
-            Download
+            Install
         </a>
       </div>
     </div>
