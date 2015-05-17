@@ -265,7 +265,7 @@
             {
                 story: "Working across multiple pipelines, Pyblish is \
                         a much needed common framework. Pyblish allows \
-                        me fix problems in one production and instantly \
+                        me to fix problems in one production and instantly \
                         propagate the solutions to other productions.",
                 company: companies.bait,
                 person: persons.tokejepsen,
