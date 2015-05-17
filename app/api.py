@@ -35,7 +35,6 @@ class View(flask.ext.restful.Resource):
         summary_path = os.path.join(views_path, root, "summary.json")
 
         try:
-            print "Looking for summary in: %s" % summary_path
             with open(summary_path, "r") as f:
                 return json.load(f)
 

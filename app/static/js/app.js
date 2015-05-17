@@ -237,7 +237,10 @@
                 person: persons.davidmartinezanim
             },
             {
-                story: "We submit everything using Pyblish.",
+                story: "Pyblish is an ideal framework that modularises \
+                        publishing workflow for visual effects by use \
+                        of small functions and clear data types while \
+                        providing wide-ranging functionality. ",
                 company: companies.realise,
                 person: persons.larsbijl,
             },
