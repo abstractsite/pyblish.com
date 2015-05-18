@@ -194,7 +194,7 @@
             },
             svenni: {
                 name: "Sveinbjörn J. Tryggvason",
-                role: "Technical Director"
+                role: "Pipeline Overlord"
             },
             mkolar: {
                 name: "Milan Kolar",
@@ -270,11 +270,11 @@
                 company: companies.bait,
                 person: persons.tokejepsen,
             },
-            // {
-            //     story: "A long placeholer, very very loooong. But not that long.",
-            //     company: companies.caoz,
-            //     person: persons.svenni,
-            // },
+            {
+                story: "I am really excited about using Pyblish on our next production.",
+                company: companies.caoz,
+                person: persons.svenni,
+            },
         ];
     });
 }());

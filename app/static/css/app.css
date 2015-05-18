@@ -884,25 +884,28 @@ section {
     text-align: center; }
 #home #stories h1 {
   text-align: center; }
-#home #stories .grid .box {
-  color: white;
-  background-color: #222;
-  margin: 15px;
-  overflow: hidden;
-  max-width: 250px;
-  position: relative;
-  padding: 10px;
-  box-shadow: 1px 1px 2px 0px #AAA;
-  transition: box-shadow 0.1s; }
-  #home #stories .grid .box i {
-    font-style: normal;
-    color: #777; }
-  #home #stories .grid .box p, #home #stories .grid .box a, #home #stories .grid .box div {
+#home #stories .grid {
+  justify-content: center;
+  align-items: stretch; }
+  #home #stories .grid .box {
+    color: white;
+    background-color: #222;
+    margin: 15px;
+    overflow: hidden;
+    max-width: 250px;
     position: relative;
-    z-index: 2; }
-  #home #stories .grid .box p {
-    margin: 0;
-    padding: 0; }
+    padding: 10px;
+    box-shadow: 1px 1px 2px 0px #AAA;
+    transition: box-shadow 0.1s; }
+    #home #stories .grid .box i {
+      font-style: normal;
+      color: #777; }
+    #home #stories .grid .box p, #home #stories .grid .box a, #home #stories .grid .box div {
+      position: relative;
+      z-index: 2; }
+    #home #stories .grid .box p {
+      margin: 0;
+      padding: 0; }
 
 /*
 

@@ -137,6 +137,9 @@
     }
 
     .grid {
+      justify-content: center;
+      align-items: stretch;
+
       .box {
         color: white;
         background-color: #222;
