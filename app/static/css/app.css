@@ -58,7 +58,7 @@ table {
   border-spacing: 0; }
 
 html {
-  font: 300 0.9em/1.28 "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font: 400 1em/1.58 "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   color: #787878;
   min-width: 650px;
   letter-spacing: 0.03em; }
@@ -860,12 +860,16 @@ section {
       width: auto; }
   #home #companies h1, #home #companies p, #home #software h1, #home #software p, #home #example h1, #home #example p {
     text-align: center; }
+#home #software a img {
+  width: 100px;
+  height: auto; }
 #home #stories h1 {
   text-align: center; }
 #home #stories .grid {
   justify-content: center;
   align-items: stretch; }
   #home #stories .grid .box {
+    width: 200px;
     color: white;
     background-color: #222;
     margin: 15px;

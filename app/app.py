@@ -7,7 +7,6 @@ import flask
 import flask.ext.restful
 
 # Local
-import api
 import routes.home
 
 logging.basicConfig(format="%(asctime)-15s %(message)s")
@@ -17,8 +16,6 @@ app = flask.Flask(__name__)
 app.route("/", defaults={"p": ""})(routes.home.route)
 app.route("/<path:p>")(routes.home.route)  # All paths route to index.html
 os.environ["APP_ROOT_PATH"] = app.root_path
-
-api.embed(app)
 
 
 def debug(app):

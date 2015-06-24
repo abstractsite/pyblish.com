@@ -1,0 +1,110 @@
+#home .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+#home .find-out-more.first {
+  margin-top: 0px; }
+#home #play {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  height: 80px;
+  opacity: 0.9;
+  transition: opacity 0.1s; }
+  #home #play:hover {
+    opacity: 1.0; }
+#home #player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  visibility: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  text-align: center; }
+  #home #player.active {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5); }
+    #home #player.active iframe {
+      display: block; }
+  #home #player iframe {
+    display: none;
+    width: 670px;
+    height: 350px; }
+#home #why-like-it .grid {
+  flex-wrap: nowrap;
+  align-items: flex-start; }
+  #home #why-like-it .grid #why-like-it-images {
+    width: 200px;
+    min-width: 200px;
+    font-size: 8em;
+    margin-right: 50px; }
+    #home #why-like-it .grid #why-like-it-images i:last-child {
+      padding-left: 100px; }
+  #home #why-like-it .grid img {
+    background-image: url("../img/sunset_bridge-wallpaper-2560x1920.jpg");
+    background-position: -475px -58px;
+    background-repeat: no-repeat;
+    background-size: 1200px;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 250px;
+    max-height: 250px;
+    margin-right: 50px; }
+#home #companies, #home #software, #home #example {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #home #companies h1, #home #software h1, #home #example h1 {
+    padding-bottom: 30px; }
+  #home #companies a, #home #software a, #home #example a {
+    display: flex;
+    align-items: center;
+    cursor: default; }
+    #home #companies a img, #home #software a img, #home #example a img {
+      margin: 20px;
+      width: auto; }
+  #home #companies h1, #home #companies p, #home #software h1, #home #software p, #home #example h1, #home #example p {
+    text-align: center; }
+#home #stories h1 {
+  text-align: center; }
+#home #stories .grid {
+  justify-content: center;
+  align-items: stretch; }
+  #home #stories .grid .box {
+    width: 250px;
+    color: white;
+    background-color: #222;
+    margin: 15px;
+    overflow: hidden;
+    max-width: 250px;
+    position: relative;
+    padding: 10px;
+    box-shadow: 1px 1px 2px 0px #AAA;
+    transition: box-shadow 0.1s; }
+    #home #stories .grid .box i {
+      font-style: normal;
+      color: #777; }
+    #home #stories .grid .box p, #home #stories .grid .box a, #home #stories .grid .box div {
+      position: relative;
+      z-index: 2; }
+    #home #stories .grid .box p {
+      margin: 0;
+      padding: 0; }
+
+/*# sourceMappingURL=_home.css.map */
