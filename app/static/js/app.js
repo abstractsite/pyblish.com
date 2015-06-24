@@ -50,12 +50,10 @@
                 controllerAs: "ctrl"
             })
             .when("/guide", {
-                redirectTo: "/guide/overview"
-            })
-            .when("/guide/:view", {
-                templateUrl: "static/views/guide.html",
-                controller: "guideController",
-                controllerAs: "ctrl"
+                redirectTo: function() {
+                    console.log("Hello");
+                    window.location = "http://forums.pyblish.com/t/learning-pyblish-by-example";
+                }
             })
             .when("/about", {
                 templateUrl: "static/views/about.html"

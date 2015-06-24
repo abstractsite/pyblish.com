@@ -62,7 +62,6 @@ html, body, .wrapper {
   flex-wrap: wrap;
 }
 
-
 .page {
   .background {
     position: absolute;
@@ -85,6 +84,11 @@ html, body, .wrapper {
     min-height: 100vh;
     max-height: 100vh;
     margin-top: 0;
+
+    h1 {
+      font-family: "Lato";
+      font-weight: bold;
+    }
   }
 }
 

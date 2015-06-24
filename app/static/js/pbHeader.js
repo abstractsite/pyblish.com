@@ -11,7 +11,7 @@
             restrict: "E",
             templateUrl: "static/templates/pbHeader.html",
             controller: "headerController",
-            controllerAs: "ctr"
+            controllerAs: "ctrl"
         };
     });
 
@@ -36,7 +36,7 @@
 
         $scope.items = [
             {title: "Home", link: "/"},
-            {title: "Guide", link: "/guide"},
+            {title: "Learn", link: "http://forums.pyblish.com/t/learning-pyblish-by-example"},
             {title: "Pricing", link: "/pricing"},
             {title: "About", link: "/about"},
         ];

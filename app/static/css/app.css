@@ -116,6 +116,9 @@ html, body, .wrapper {
   min-height: 100vh;
   max-height: 100vh;
   margin-top: 0; }
+  .page .landingpage h1 {
+    font-family: "Lato";
+    font-weight: bold; }
 
 .filler {
   margin-top: 130px; }
@@ -488,31 +491,6 @@ section {
     animation-duration: 7s;
     animation-name: pulse;
     animation-iteration-count: infinite; }
-
-.navigation .next, .navigation .previous {
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  display: table-cell;
-  vertical-align: middle; }
-  .navigation .next img, .navigation .previous img {
-    position: absolute;
-    width: 100px;
-    top: 50%;
-    margin-top: -50px;
-    text-align: center;
-    transition: margin-left ease-out 0.1s; }
-.navigation .next {
-  width: 100px;
-  right: 0px; }
-  .navigation .next:hover img {
-    margin-left: 10px; }
-.navigation .previous {
-  width: 100px;
-  left: 0px;
-  transition: margin-right ease-out 0.1s; }
-  .navigation .previous:hover img {
-    margin-left: -10px; }
 
 .highlight {
   background: #ffffff; }
