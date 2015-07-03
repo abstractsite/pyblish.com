@@ -81,7 +81,7 @@
         self = this;
 
         self.showPlayer = false;
-        self.playerUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/j5uUTW702-U?hd=1&vq=hd720");
+        self.playerUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/j5uUTW702-U?rel=0&amp;showinfo=0&hd=1&vq=hd720");
 
         companies = {
             realise: {
