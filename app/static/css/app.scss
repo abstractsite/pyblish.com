@@ -23,6 +23,12 @@
 
 @media only screen and (max-device-width: 480px) {
   #home .background {
-    background-image: url("../img/downtown_bay_bridge_sa-600x338.jpg");
+    background-image: url("../img/backdrop-700.png");
   }
+
+  #player iframe {
+      display: none;
+      width: 640px;
+      height: 360px;
+    }
 }

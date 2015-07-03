@@ -6,7 +6,7 @@
     <pb-headline
       id="main-title"
       title="PYBLISH"
-      subtitle="Test-driven content creation">
+      subtitle="test-driven content creation">
       <br>
       <a
         href=""
@@ -19,7 +19,7 @@
       id="player"
       ng-class="{active: ctrl.showPlayer}"
       ng-click="ctrl.showPlayer=false">
-        <iframe src="{{ctrl.showPlayer ? ctrl.playerUrl : ''}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe width="1280" height="720" src="{{ ctrl.showPlayer ? ctrl.playerUrl : '' }}" frameborder="0" allowfullscreen></iframe>
     </a>
 
     <a href="" ng-click="scrollTo('companies')">

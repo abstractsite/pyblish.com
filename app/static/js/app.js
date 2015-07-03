@@ -71,33 +71,6 @@
         $locationProvider.html5Mode(true);
     });
 
-
-    app.controller("guideController", function ($sce, $location, Restangular) {
-        var self,
-            guide,
-            path;
-
-        self = this;
-        path = $location.path()
-               .slice(1) // Remove prefix "/"
-               .toLowerCase();
-
-        guide = Restangular.one("view/" + path);
-
-        guide.get().then(function (data) {
-            /* Trust the HTML */
-            self.html = $sce.trustAsHtml(data.html);
-            self.title = data.title;
-            self.next = data.next;
-            self.previous = data.previous;
-
-            self.toc = data.toc;
-        });
-
-        self.showNavigation = false;
-        self.showSidebar = true;
-    });
-
     app.controller("homeController", function ($sce) {
         var self,
             persons,
@@ -108,7 +81,7 @@
         self = this;
 
         self.showPlayer = false;
-        self.playerUrl = $sce.trustAsResourceUrl("https://player.vimeo.com/video/117184207");
+        self.playerUrl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/j5uUTW702-U?hd=1&vq=hd720");
 
         companies = {
             realise: {

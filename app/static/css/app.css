@@ -784,19 +784,24 @@ section {
   right: 0;
   bottom: 0;
   z-index: 0;
-  background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
+  background-image: url("../img/backdrop-1500.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }
 #home .find-out-more.first {
   margin-top: 0px; }
+#home .landingpage {
+  position: relative;
+  top: 60px; }
+  #home .landingpage h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); }
 #home #play {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60px;
   height: 80px;
-  opacity: 0.9;
+  opacity: 0.5;
   transition: opacity 0.1s; }
   #home #play:hover {
     opacity: 1.0; }
@@ -821,8 +826,8 @@ section {
       display: block; }
   #home #player iframe {
     display: none;
-    width: 670px;
-    height: 350px; }
+    width: 960px;
+    height: 540px; }
 #home #why-like-it .grid {
   flex-wrap: nowrap;
   align-items: flex-start; }
@@ -1166,6 +1171,11 @@ section {
 
 @media only screen and (max-device-width: 480px) {
   #home .background {
-    background-image: url("../img/downtown_bay_bridge_sa-600x338.jpg"); } }
+    background-image: url("../img/backdrop-700.png"); }
+
+  #player iframe {
+    display: none;
+    width: 640px;
+    height: 360px; } }
 
 /*# sourceMappingURL=app.css.map */
