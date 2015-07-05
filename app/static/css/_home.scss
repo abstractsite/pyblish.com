@@ -14,6 +14,32 @@
     background-position: center;
   }
 
+  .cgaward {
+    position: absolute;
+    top: 100px;
+    right: 150px;
+
+    width: 155px;
+    height: 150px;
+
+    animation: hover 3s ease-in-out;
+    animation-iteration-count: infinite;
+
+    transition: background-color 0.1s;
+
+    border: 3px solid rgba(0, 0, 0, 0);
+
+    &:hover {
+      background-color: rgba(82, 146, 231, 0.2);
+      border: 3px solid rgb(0, 79, 157);
+    }
+
+    img {
+      position: absolute;
+      width: 150px;
+    }
+  }
+
   .find-out-more.first {
     margin-top: 0px;
   }

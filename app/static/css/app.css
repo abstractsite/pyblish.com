@@ -407,9 +407,16 @@ footer {
     opacity: 1; } }
 @keyframes slide {
   from {
-    left: -20px; }
+    left: -50px; }
   to {
     left: 0px; } }
+@keyframes hover {
+  0% {
+    transform: translateY(0px); }
+  50% {
+    transform: translateY(10px); }
+  100% {
+    transform: translateY(0px); } }
 section {
   position: relative;
   margin-left: 70px;
@@ -788,6 +795,22 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }
+#home .cgaward {
+  position: absolute;
+  top: 100px;
+  right: 150px;
+  width: 155px;
+  height: 150px;
+  animation: hover 3s ease-in-out;
+  animation-iteration-count: infinite;
+  transition: background-color 0.1s;
+  border: 3px solid transparent; }
+  #home .cgaward:hover {
+    background-color: rgba(82, 146, 231, 0.2);
+    border: 3px solid #004f9d; }
+  #home .cgaward img {
+    position: absolute;
+    width: 150px; }
 #home .find-out-more.first {
   margin-top: 0px; }
 #home .landingpage {
@@ -1058,9 +1081,16 @@ section {
     opacity: 1; } }
 @keyframes slide {
   from {
-    left: -20px; }
+    left: -50px; }
   to {
     left: 0px; } }
+@keyframes hover {
+  0% {
+    transform: translateY(0px); }
+  50% {
+    transform: translateY(10px); }
+  100% {
+    transform: translateY(0px); } }
 @font-face {
   font-family: "Source Code Pro";
   src: url("../font/SourceCodePro-Regular.ttf") format("truetype");

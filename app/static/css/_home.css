@@ -5,19 +5,38 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-  background-image: url("../img/downtown_bay_bridge_sa-2560x1440.jpg");
+  background-image: url("../img/backdrop-1500.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }
+#home .cgaward {
+  position: absolute;
+  top: 100px;
+  right: 150px;
+  width: 100px;
+  height: 100px;
+  animation: hover 3s ease-in-out;
+  animation-iteration-count: infinite;
+  transition: background-color 0.1s; }
+  #home .cgaward img {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 200px; }
 #home .find-out-more.first {
   margin-top: 0px; }
+#home .landingpage {
+  position: relative;
+  top: 60px; }
+  #home .landingpage h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); }
 #home #play {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60px;
   height: 80px;
-  opacity: 0.9;
+  opacity: 0.5;
   transition: opacity 0.1s; }
   #home #play:hover {
     opacity: 1.0; }
