@@ -38,7 +38,7 @@
             {title: "Home", link: "/"},
             {title: "Learn", link: "http://forums.pyblish.com/t/learning-pyblish-by-example"},
             {title: "Pricing", link: "/pricing"},
-            {title: "About", link: "/about"},
+            {title: "About", link: "https://github.com/pyblish/pyblish/wiki"},
         ];
 
         $scope.moreitems = [
